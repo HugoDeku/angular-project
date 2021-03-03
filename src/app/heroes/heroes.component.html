@@ -1,0 +1,26 @@
+<div class="heroes">
+  <div class="heroes-header">
+    <h1>All Heroes</h1>
+    <p>X</p>
+  </div>
+  <div class="heroes-list">
+    <div *ngFor="let hero of heroes" routerLink="/detail/{{hero.id}}" class="hero-content-{{ hero.guild.id }}">
+      <div class="hero-content-header">
+        <div>{{ hero.name }}</div>
+        <div>+</div>
+      </div>
+      <div class="hero-content-main-info">
+        <div class="hero-content-img-container">
+          <img src="{{ hero.image }}" alt="Hero picture">
+        </div>
+        <div class="hero-content-info-container">
+          <p>{{ hero.description }}</p>
+          <label>Strength:</label>
+          <div class="hero-content-info-strength">{{ hero.strength }}</div>
+          <label>Health:</label>
+          <div class="hero-content-info-health">{{ hero.health }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

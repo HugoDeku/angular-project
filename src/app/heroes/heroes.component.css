@@ -1,0 +1,6 @@
+.heroes{
+  display: flex;
+  flex-direction: column;
+}
+
+
