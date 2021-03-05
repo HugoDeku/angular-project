@@ -1,0 +1,58 @@
+.hero-card {
+    max-width: 800px;
+}
+
+.error-message {
+    width: 100%;
+    min-height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 15px;
+    background-color: #CC0000;
+    margin-top: 20px;
+}
+
+#hero-health, #hero-strength {
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid;
+    margin: auto;
+    width: 50px;
+    text-align: center;
+}
+
+.hero-content-buttons {
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-content-buttons button:last-child {
+    margin-left: 20px;
+}
+
+textarea {
+    margin: auto;
+    max-width: 250px;
+    min-height: 50px;
+    height: max-content;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid lightgray;
+}
+
+.hero-content-header div:first-child input {
+    margin: auto;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid lightgray;
+    margin: 5px 0 5px 0;
+    font-size: 1.2rem;
+    text-align: center;
+}

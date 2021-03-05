@@ -1,7 +1,33 @@
-<h2>Top Heroes</h2>
-<div class="heroes-menu">
-  <a *ngFor="let hero of heroes"
-     routerLink="/detail/{{hero.id}}">
-    {{hero.name}}
-  </a>
+<div class="heroes">
+    <div class="heroes-header">
+        <h1>Top Heroes</h1>
+    </div>
+    <div class="shadow-container">
+        <div class="heroes-list">
+            <div *ngFor="let hero of heroes" class="hero-card hero-content-{{ hero.guild.id }}">
+                <div class="hero-content-header">
+                    <div>{{ hero.name }}</div>
+                    <div routerLink="/detail/{{hero.id}}" class="hero-card-update"><i class="fas fa-cog"></i></div>
+                </div>
+                <div class="hero-content-main-info">
+                    <div class="hero-content-img-container">
+                        <img src="{{ hero.image }}" alt="Hero picture">
+                    </div>
+                    <div class="hero-content-info-container">
+                        <p>{{ hero.description }}</p>
+                        <label>Guild</label>
+                        <div [ngSwitch]="hero.guild.id" class="hero-content-info-guild">
+                            <i *ngSwitchCase="1" class="fab fa-windows"></i>
+                            <i *ngSwitchCase="3" class="fab fa-linux"></i>
+                            <i *ngSwitchCase="2" class="fab fa-apple"></i>
+                        </div>
+                        <label>Strength</label>
+                        <div class="hero-content-info-strength">{{ hero.strength }}</div>
+                        <label>Health</label>
+                        <div class="hero-content-info-health">{{ hero.health }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

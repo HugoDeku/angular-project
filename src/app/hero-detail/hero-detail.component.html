@@ -1,22 +1,41 @@
-<div *ngIf="hero">
-  <h2>{{hero.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{hero.id}}</div>
-  <div class="error-message" *ngIf="messageError">
-    {{ messageError }}
-  </div>
-  <div>
-    <label for="hero-name">Name: </label>
-    <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
-    <br>
-    <label for="hero-description">Description: </label>
-    <textarea id="hero-description" [(ngModel)]="hero.description" placeholder="description" rows="2" cols="50"></textarea>
-    <br>
-    <label for="hero-health">Health: </label>
-    <input id="hero-health" [(ngModel)]="hero.health" placeholder=10>
-    <br>
-    <label for="hero-strength">Strength: </label>
-    <input id="hero-strength" [(ngModel)]="hero.strength" placeholder=10>
-  </div>
-  <button (click)="goBack()">Go back</button>
-  <button class="apply-changes" (click)="applyChanges()">Apply changes</button>
+<div class="heroes">
+    <div class="heroes-header">
+        <h1>{{hero.name}} Details</h1>
+    </div>
+    <div class="heroes-list">
+        <div *ngIf="hero" class="hero-card hero-content-{{ hero.guild.id }}">
+            <div class="hero-content-header">
+                <div><input id="hero-name" [(ngModel)]="hero.name" placeholder="name"></div>
+            </div>
+            <div class="error-message" *ngIf="messageError">
+                {{ messageError }}
+            </div>
+            <div class="hero-content-main-info">
+                <div class="hero-content-img-container">
+                    <img src="{{ hero.image }}" alt="Hero picture">
+                </div>
+                <div class="hero-content-info-container">
+                    <label>Description</label>
+                    <textarea id="hero-description" [(ngModel)]="hero.description" placeholder="description" rows="2"
+                              cols="50"></textarea>
+                    <label>Guild</label>
+                    <div [ngSwitch]="hero.guild.id" class="hero-content-info-guild">
+                        <i *ngSwitchCase="1" class="fab fa-windows"></i>
+                        <i *ngSwitchCase="3" class="fab fa-linux"></i>
+                        <i *ngSwitchCase="2" class="fab fa-apple"></i>
+                    </div>
+                    <label>Strength</label>
+                    <input id="hero-strength" class="hero-content-info-strength" [(ngModel)]="hero.strength"
+                           placeholder=10>
+                    <label>Health</label>
+                    <input id="hero-health" class="hero-content-info-health" [(ngModel)]="hero.health" placeholder=10>
+                    <div class="hero-content-buttons">
+                        <button (click)="goBack()"><i class="fas fa-arrow-left"></i></button>
+                        <button class="apply-changes" (click)="applyChanges()"><i class="fas fa-check"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
