@@ -16,11 +16,11 @@
         <div class="hero-content-info-container">
           <p>{{ hero.description }}</p>
           <label>Guild</label>
-          <!--<div *ngIf="{{ hero.guild.id }} equals 1; then thenBlock else elseBlock" class="hero-content-info-guild">
-            <i class="fab fa-windows"></i>
-            <i class="fab fa-linux"></i>
-            <i class="fab fa-apple"></i>
-          </div>-->
+          <div [ngSwitch]="hero.guild.id" class="hero-content-info-guild">
+            <i *ngSwitchCase="1" class="fab fa-windows"></i>
+            <i *ngSwitchCase="3" class="fab fa-linux"></i>
+            <i *ngSwitchCase="2" class="fab fa-apple"></i>
+          </div>
           <label>Strength</label>
           <div class="hero-content-info-strength">{{ hero.strength }}</div>
           <label>Health</label>
