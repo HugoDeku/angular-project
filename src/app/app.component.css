@@ -157,27 +157,27 @@ nav a.active {
 }
 .hero-content-info-container label {
   font-size: 0.7rem;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 .hero-content-info-attack, .hero-content-info-damage, .hero-content-info-dodge, .hero-content-info-health, .hero-content-info-guild {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 /* Windows colour */
-.hero-content-1 .hero-content-header, .hero-content-1 .hero-content-header div, .hero-content-1 .hero-content-info-attack, .hero-content-info-damage, .hero-content-info-dodge, .hero-content-1 .hero-content-info-health, .hero-content-1 .hero-content-info-guild, .hero-content-1 button {
+.hero-content-1 .hero-content-header, .hero-content-1 .hero-content-header div, .hero-content-1 .hero-content-info-attack, .hero-content-1 .hero-content-info-damage, .hero-content-1 .hero-content-info-dodge, .hero-content-1 .hero-content-info-health, .hero-content-1 .hero-content-info-guild, .hero-content-1 button {
   border-color: #0097F5;
   color: #0097F5;
 }
 
 /* macOS colour */
-.hero-content-2 .hero-content-header, .hero-content-2 .hero-content-header div, .hero-content-2 .hero-content-info-attack, .hero-content-info-damage, .hero-content-info-dodge, .hero-content-2 .hero-content-info-health, .hero-content-2 .hero-content-info-guild, .hero-content-2 button {
+.hero-content-2 .hero-content-header, .hero-content-2 .hero-content-header div, .hero-content-2 .hero-content-info-attack, .hero-content-2 .hero-content-info-damage, .hero-content-2 .hero-content-info-dodge, .hero-content-2 .hero-content-info-health, .hero-content-2 .hero-content-info-guild, .hero-content-2 button {
   border-color: #CE0028;
   color: #CE0028;
 }
 
 /* Linux colour */
-.hero-content-3 .hero-content-header, .hero-content-3 .hero-content-header div, .hero-content-3 .hero-content-info-attack, .hero-content-info-damage, .hero-content-info-dodge, .hero-content-3 .hero-content-info-health, .hero-content-3 .hero-content-info-guild, .hero-content-3 button {
+.hero-content-3 .hero-content-header, .hero-content-3 .hero-content-header div, .hero-content-3 .hero-content-info-attack, .hero-content-3 .hero-content-info-damage, .hero-content-3 .hero-content-info-dodge, .hero-content-3 .hero-content-info-health, .hero-content-3 .hero-content-info-guild, .hero-content-3 button {
   border-color: #FF9D00;
   color: #FF9D00;
 }
