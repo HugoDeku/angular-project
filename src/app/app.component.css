@@ -142,6 +142,10 @@ nav a.active {
   padding-right: 30px;
 }
 
+.hero-content-img-container img {
+  height: 100%;
+}
+
 .hero-content-info-container {
   width: 100%;
   height: 80%;
