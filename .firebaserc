@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "tour-of-heroes-iteprath": {
+      "hosting": {
+        "angular-tour-of-heroes-iteprath": [
+          "tour-of-heroes-iteprath"
+        ]
+      }
+    }
+  }
+}

@@ -7,6 +7,8 @@ export class Hero extends Serializable{
   description: string;
   health: number;
   image: string;
-  strength: number;
+  attack: number;
+  dodge: number;
+  damage: number;
   guild: Guild;
 }

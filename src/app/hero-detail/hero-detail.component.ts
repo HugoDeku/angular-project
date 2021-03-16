@@ -38,13 +38,7 @@ export class HeroDetailComponent implements OnInit {
 
     applyChanges(): void {
         if (this.hero.health > 20 || this.hero.health < 0) {
-            this.messageError = 'Oops, health has to be between 0 and 20';
-        } else if (this.hero.strength > 20 || this.hero.strength < 0) {
-            this.messageError = 'Oops, strength has to be between 0 and 20';
-        } else if (typeof this.hero.health === 'string' && !/^\d+$/.test(this.hero.health)) {
-            this.messageError = 'Oops, health has to be a number';
-        } else if (typeof this.hero.strength === 'string' && !/^\d+$/.test(this.hero.strength)) {
-            this.messageError = 'Oops, strength has to be a number';
+            return;
         } else {
             this.messageError = null;
             this.heroService.updateHero(this.hero);
