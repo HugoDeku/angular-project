@@ -1,45 +1,66 @@
 <div class="heroes">
-    <div class="heroes-header">
-        <h1>{{hero.name}} Details</h1>
-    </div>
-    <div class="heroes-list">
-        <div *ngIf="hero" class="hero-card hero-content-{{ hero.guild.id }}">
-            <div class="hero-content-header">
-                <div><input id="hero-name" [(ngModel)]="hero.name" placeholder="name"></div>
-            </div>
-            <div class="error-message" *ngIf="messageError">
-                {{ messageError }}
-            </div>
-            <div class="hero-content-main-info">
-                <div class="hero-content-img-container">
-                    <img src="assets/image/{{ hero.image }}" alt="Hero picture">
-                </div>
-                <div class="hero-content-info-container">
-                    <label>Description</label>
-                    <textarea id="hero-description" [(ngModel)]="hero.description" placeholder="description" rows="2"
-                              cols="50"></textarea>
-                    <label>Guild</label>
-                    <div [ngSwitch]="hero.guild.id" class="hero-content-info-guild">
-                        <i *ngSwitchCase="1" class="fab fa-windows"></i>
-                        <i *ngSwitchCase="3" class="fab fa-linux"></i>
-                        <i *ngSwitchCase="2" class="fab fa-apple"></i>
-                    </div>
-                    <label>Attack</label>
-                    <input id="hero-attack" class="hero-content-info-attack" [(ngModel)]="hero.attack"
-                           placeholder=10>
-                    <label>Health</label>
-                    <input id="hero-health" class="hero-content-info-health" [(ngModel)]="hero.health" placeholder=10>
-                    <label>Damage</label>
-                    <input id="hero-damage" class="hero-content-info-damage" [(ngModel)]="hero.damage" placeholder=10>
-                    <label>Dodge</label>
-                    <input id="hero-dodge" class="hero-content-info-dodge" [(ngModel)]="hero.dodge" placeholder=10>
-                    <div class="hero-content-buttons">
-                        <button (click)="goBack()"><i class="fas fa-arrow-left"></i></button>
-                        <button class="apply-changes" (click)="applyChanges()"><i class="fas fa-check"></i></button>
-                    </div>
-                </div>
-            </div>
+  <div class="heroes-header">
+    <h1>{{hero.name}} Details</h1>
+  </div>
+  <div class="heroes-list">
+    <div *ngIf="hero" class="hero-card hero-content-{{ hero.guild.id }}">
+      <div class="hero-content-header">
+        <div><input id="hero-name" [(ngModel)]="hero.name" placeholder="name"></div>
+      </div>
+      <div class="error-message" *ngIf="messageError">
+        {{ messageError }}
+      </div>
+      <div class="hero-content-main-info">
+        <div class="hero-content-img-container">
+          <img src="assets/image/{{ hero.image }}" alt="Hero picture">
         </div>
+        <div [ngSwitch]="hero.guild.id" class="hero-content-info-container">
+          <label>Description</label>
+          <textarea id="hero-description" [(ngModel)]="hero.description" placeholder="description" rows="2"
+                    cols="50"></textarea>
+          <label>Guild</label>
+          <div *ngSwitchCase="1" class="hero-content-info-guild">
+            <i class="guild-active fab fa-windows"></i>
+            <i class="fab fa-linux"></i>
+            <i class="fab fa-apple"></i>
+          </div>
+          <div *ngSwitchCase="2" class="hero-content-info-guild">
+            <i class="fab fa-windows"></i>
+            <i class="fab fa-linux"></i>
+            <i class="guild-active fab fa-apple"></i>
+          </div>
+          <div *ngSwitchCase="3" class="hero-content-info-guild">
+            <i class="fab fa-windows"></i>
+            <i class="guild-active fab fa-linux"></i>
+            <i class="fab fa-apple"></i>
+          </div>
+
+          <div class="hero-stats">
+            <div class="hero-stats-element">
+              <label>Attack</label>
+              <input id="hero-attack" class="hero-content-info-attack" [(ngModel)]="hero.attack"
+                     placeholder=10>
+            </div>
+            <div class="hero-stats-element">
+              <label>Health</label>
+              <input id="hero-health" class="hero-content-info-health" [(ngModel)]="hero.health" placeholder=10>
+            </div>
+            <div class="hero-stats-element">
+              <label>Damage</label>
+              <input id="hero-damage" class="hero-content-info-damage" [(ngModel)]="hero.damage" placeholder=10>
+            </div>
+            <div class="hero-stats-element">
+              <label>Dodge</label>
+              <input id="hero-dodge" class="hero-content-info-dodge" [(ngModel)]="hero.dodge" placeholder=10>
+            </div>
+          </div>
+          <div class="hero-content-buttons">
+            <button (click)="goBack()"><i class="fas fa-arrow-left"></i></button>
+            <button class="apply-changes" (click)="applyChanges()"><i class="fas fa-check"></i></button>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 

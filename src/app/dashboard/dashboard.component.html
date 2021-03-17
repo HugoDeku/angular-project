@@ -21,14 +21,24 @@
                             <i *ngSwitchCase="3" class="fab fa-linux"></i>
                             <i *ngSwitchCase="2" class="fab fa-apple"></i>
                         </div>
-                        <label>Attack</label>
-                        <div class="hero-content-info-attack">{{ hero.attack }}</div>
-                        <label>Health</label>
-                        <div class="hero-content-info-health">{{ hero.health }}</div>
-                        <label>Damage</label>
-                        <div class="hero-content-info-damage">{{ hero.damage }}</div>
-                        <label>Dodge</label>
-                        <div class="hero-content-info-dodge">{{ hero.dodge }}</div>
+                      <div class="hero-stats">
+                        <div class="hero-stats-element">
+                          <label>Attack</label>
+                          <div class="hero-content-info-attack">{{ hero.attack }}</div>
+                        </div>
+                        <div class="hero-stats-element">
+                          <label>Health</label>
+                          <div class="hero-content-info-health">{{ hero.health }}</div>
+                        </div>
+                        <div class="hero-stats-element">
+                          <label>Damage</label>
+                          <div class="hero-content-info-damage">{{ hero.damage }}</div>
+                        </div>
+                        <div class="hero-stats-element">
+                          <label>Dodge</label>
+                          <div class="hero-content-info-dodge">{{ hero.dodge }}</div>
+                        </div>
+                      </div>
                     </div>
                 </div>
             </div>

@@ -56,3 +56,15 @@ textarea {
     font-size: 1.2rem;
     text-align: center;
 }
+
+.hero-content-info-guild i {
+  margin: 5px;
+}
+
+.hero-content-info-guild i:not(.guild-active) {
+  opacity: 0.5;
+}
+
+.hero-content-info-guild i:hover {
+  opacity: 1;
+}

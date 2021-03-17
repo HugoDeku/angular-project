@@ -84,7 +84,7 @@ nav a.active {
 
 .hero-card {
   scroll-snap-align: center;
-  min-width: 500px;
+  min-width: 600px;
   height: 500px;
   padding: 40px 60px 40px 60px;
   margin: 0 20px 0 20px;
@@ -140,10 +140,13 @@ nav a.active {
   height: 80%;
   border-right: 1px solid lightgray;
   padding-right: 30px;
+  overflow: hidden;
 }
 
 .hero-content-img-container img {
-  height: 100%;
+  object-fit: cover;
+  width: 150%;
+  object-position: -70px -70px;
 }
 
 .hero-content-info-container {
@@ -154,6 +157,25 @@ nav a.active {
   flex-direction: column;
   justify-content: center;
   text-align: center;
+}
+
+.hero-stats {
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 140px;
+}
+
+.hero-stats-element {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
 }
 
 .hero-content-info-container p, .hero-content-info-container textarea {
