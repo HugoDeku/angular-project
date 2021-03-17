@@ -139,11 +139,4 @@ export class HeroService {
         })
       );
   }
-
-  // Création du service Firebase en fonction de l'id du héro
-  getGuildDocument(id: string): AngularFirestoreDocument<Guild> {
-
-    // return document
-    return this.db.doc<Guild>(HeroService.urlGuild + `/` + id);
-  }
 }

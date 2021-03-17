@@ -1,61 +1,78 @@
 .hero-card {
-    max-width: 800px;
+  max-width: 800px;
 }
 
 .error-message {
-    width: 100%;
-    min-height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    border-radius: 15px;
-    background-color: #CC0000;
-    margin-top: 20px;
+  width: 100%;
+  min-height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-radius: 15px;
+  background-color: #CC0000;
+  margin-top: 20px;
 }
 
 #hero-health, #hero-damage, #hero-attack, #hero-dodge {
-    border-top: none;
-    border-right: none;
-    border-left: none;
-    border-bottom: 1px solid;
-    margin: auto;
-    width: 50px;
-    text-align: center;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px solid;
+  margin: auto;
+  width: 50px;
+  text-align: center;
 }
 
 .hero-content-buttons {
-    display: flex;
-    margin-top: 20px;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
 }
 
 .hero-content-buttons button:last-child {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 textarea {
-    resize: none;
-    margin: auto;
-    max-width: 250px;
-    min-height: 50px;
-    height: max-content;
-    border-top: none;
-    border-right: none;
-    border-left: none;
-    border-bottom: 1px solid lightgray;
+  font-family: inherit;
+  font-size: 1rem !important;
+  resize: none;
+  margin: auto;
+  max-width: 250px;
+  min-height: 50px;
+  height: max-content;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px solid lightgray;
+}
+.hero-content-1 textarea:focus {
+  outline: none !important;
+  border-color: #0097F5;
 }
 
+.hero-content-2 textarea:focus {
+  outline: none !important;
+  border-color: #CE0028;
+}
+
+.hero-content-3 textarea:focus {
+  outline: none !important;
+  border-color: #FF9D00;
+}
+
+
 .hero-content-header div:first-child input {
-    margin: auto;
-    border-top: none;
-    border-right: none;
-    border-left: none;
-    border-bottom: 1px solid lightgray;
-    margin: 5px 0 5px 0;
-    font-size: 1.2rem;
-    text-align: center;
+  margin: auto;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px solid lightgray;
+  margin: 5px 0 5px 0;
+  font-size: 1.2rem;
+  text-align: center;
 }
 
 .hero-content-info-guild i {
@@ -68,4 +85,28 @@ textarea {
 
 .hero-content-info-guild i:hover {
   opacity: 1;
+}
+
+.hero-content-1 .remaining-points-container {
+  background-color: #0097F54D;
+}
+
+.hero-content-2 .remaining-points-container {
+  background-color: #CE00284D;
+}
+
+.hero-content-3 .remaining-points-container {
+  background-color: #FF9D004D;
+}
+
+.remaining-points-container {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 50px;
+}
+
+.remaining-points-container h3 {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: normal;
 }

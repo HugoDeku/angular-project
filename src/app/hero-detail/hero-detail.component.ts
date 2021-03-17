@@ -7,23 +7,23 @@ import {HeroService} from '../services/hero.service';
 import {Guild} from '../data/guild';
 
 @Component({
-    selector: 'app-hero-detail',
-    templateUrl: './hero-detail.component.html',
-    styleUrls: ['../app.component.css', './hero-detail.component.css']
+  selector: 'app-hero-detail',
+  templateUrl: './hero-detail.component.html',
+  styleUrls: ['../app.component.css', './hero-detail.component.css']
 })
 export class HeroDetailComponent implements OnInit {
 
-    @Input() hero: Hero | undefined;
-    messageError: string;
-    pointsToDistribute: number;
-    readonly maxPoints: number = 40;
-    guilds: Guild[] = [];
+  @Input() hero: Hero | undefined;
+  messageError: string;
+  pointsToDistribute: number;
+  readonly maxPoints: number = 40;
+  guilds: Guild[] = [];
 
-    constructor(private route: ActivatedRoute,
-                private heroService: HeroService,
-                private location: Location,
-                private router: Router) {
-    }
+  constructor(private route: ActivatedRoute,
+              private heroService: HeroService,
+              private location: Location,
+              private router: Router) {
+  }
 
 
     ngOnInit(): void {
