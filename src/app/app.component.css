@@ -192,20 +192,40 @@ nav a.active {
 
 /* Windows colour */
 .hero-content-1 .hero-content-header, .hero-content-1 .hero-content-header div, .hero-content-1 .hero-content-info-attack, .hero-content-1 .hero-content-info-damage, .hero-content-1 .hero-content-info-dodge, .hero-content-1 .hero-content-info-health, .hero-content-1 .hero-content-info-guild, .hero-content-1 button {
-  border-color: #0097F5;
   color: #0097F5;
 }
 
 /* macOS colour */
 .hero-content-2 .hero-content-header, .hero-content-2 .hero-content-header div, .hero-content-2 .hero-content-info-attack, .hero-content-2 .hero-content-info-damage, .hero-content-2 .hero-content-info-dodge, .hero-content-2 .hero-content-info-health, .hero-content-2 .hero-content-info-guild, .hero-content-2 button {
-  border-color: #CE0028;
   color: #CE0028;
 }
 
 /* Linux colour */
 .hero-content-3 .hero-content-header, .hero-content-3 .hero-content-header div, .hero-content-3 .hero-content-info-attack, .hero-content-3 .hero-content-info-damage, .hero-content-3 .hero-content-info-dodge, .hero-content-3 .hero-content-info-health, .hero-content-3 .hero-content-info-guild, .hero-content-3 button {
-  border-color: #FF9D00;
   color: #FF9D00;
+}
+
+
+
+/* Windows colour */
+.hero-content-1 #hero-attack:focus, .hero-content-1 #hero-damage:focus, .hero-content-1 #hero-dodge:focus, .hero-content-1 #hero-health:focus, .hero-content-1 #hero-name:focus,
+.hero-content-1 #hero-attack:hover, .hero-content-1 #hero-damage:hover, .hero-content-1 #hero-dodge:hover, .hero-content-1 #hero-health:hover, .hero-content-1 #hero-name:hover {
+  outline: none !important;
+  border-color: #0097F5;
+}
+
+/* macOS colour */
+.hero-content-2 #hero-attack:focus, .hero-content-2 #hero-damage:focus, .hero-content-2 #hero-dodge:focus, .hero-content-2 #hero-health:focus,
+.hero-content-2 #hero-attack:hover, .hero-content-2 #hero-damage:hover, .hero-content-2 #hero-dodge:hover, .hero-content-2 #hero-health:hover {
+  outline: none !important;
+  border-color: #CE0028;
+}
+
+/* Linux colour */
+.hero-content-3 #hero-attack:focus, .hero-content-3 #hero-damage:focus, .hero-content-3 #hero-dodge:focus, .hero-content-3 #hero-health:focus,
+.hero-content-3 #hero-attack:hover, .hero-content-3 #hero-damage:hover, .hero-content-3 #hero-dodge:hover, .hero-content-3 #hero-health:hover {
+  outline: none !important;
+  border-color: #FF9D00;
 }
 
 

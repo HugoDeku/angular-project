@@ -18,7 +18,7 @@
   border-top: none;
   border-right: none;
   border-left: none;
-  border-bottom: 1px solid;
+  border-bottom: 1px solid lightgray;
   margin: auto;
   width: 50px;
   text-align: center;
@@ -48,17 +48,17 @@ textarea {
   border-left: none;
   border-bottom: 1px solid lightgray;
 }
-.hero-content-1 textarea:focus {
+.hero-content-1 textarea:focus, .hero-content-1 textarea:hover {
   outline: none !important;
   border-color: #0097F5;
 }
 
-.hero-content-2 textarea:focus {
+.hero-content-2 textarea:focus, .hero-content-2 textarea:hover {
   outline: none !important;
   border-color: #CE0028;
 }
 
-.hero-content-3 textarea:focus {
+.hero-content-3 textarea:focus, .hero-content-3 textarea:hover {
   outline: none !important;
   border-color: #FF9D00;
 }
