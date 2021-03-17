@@ -36,6 +36,7 @@
 }
 
 textarea {
+    resize: none;
     margin: auto;
     max-width: 250px;
     min-height: 50px;
@@ -62,7 +63,7 @@ textarea {
 }
 
 .hero-content-info-guild i:not(.guild-active) {
-  opacity: 0.5;
+  opacity: 0.2;
 }
 
 .hero-content-info-guild i:hover {

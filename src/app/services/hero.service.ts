@@ -9,6 +9,7 @@ import {AngularFirestore, DocumentChangeAction} from '@angular/fire/firestore';
 import { AngularFirestoreDocument } from '@angular/fire/firestore';
 import { AngularFirestoreCollection } from '@angular/fire/firestore';
 import {map} from 'rxjs/operators';
+import {Guild} from '../data/guild';
 
 
 @Injectable({
@@ -105,5 +106,44 @@ export class HeroService {
 
     // return document
     return this.db.doc<Hero>(HeroService.url + `/` + id);
+  }
+
+  getGuilds(): Observable<Guild[]> {
+    return this.db.collection<Guild>(HeroService.urlGuild)
+      .snapshotChanges()
+      .pipe(
+        map(liste => {
+
+          // log
+          console.log('getGuilds()');
+
+          // Traitement de la liste
+          return liste.map(item => {
+
+            // Get document data
+            const data = item.payload.doc.data();
+
+            // New Hero
+            const guild = new Guild().fromJSON(data);
+
+            // Get document id
+            const id = item.payload.doc.id;
+            guild.id = id;
+
+            // log
+            console.log('   guild ' + id);
+
+            // Use spread operator to add the id to the document data
+            return guild;
+          });
+        })
+      );
+  }
+
+  // Création du service Firebase en fonction de l'id du héro
+  getGuildDocument(id: string): AngularFirestoreDocument<Guild> {
+
+    // return document
+    return this.db.doc<Guild>(HeroService.urlGuild + `/` + id);
   }
 }
