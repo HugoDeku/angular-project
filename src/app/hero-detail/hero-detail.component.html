@@ -10,10 +10,6 @@
       <div class="error-message" *ngIf="messageError">
         {{ messageError }}
       </div>
-      <div class="remaining-points-container">
-        <h3 class="remaining-points-title">Remaining Points</h3>
-        <p class="remaining-points-value"> {{ pointsToDistribute }}</p>
-      </div>
       <div class="hero-content-main-info">
         <div class="hero-content-img-container">
           <img src="assets/image/{{ hero.image }}" alt="Hero picture">
@@ -57,15 +53,18 @@
               <label>Dodge</label>
               <input type="number" step="1" id="hero-dodge" class="hero-content-info-dodge" (change)="updatePoints()"
                      [(ngModel)]="hero.dodge">
-              <div class="hero-stats-element">
-              </div>
-              <div class="hero-content-buttons">
-                <button (click)="goBack()"><i class="fas fa-arrow-left"></i></button>
-                <button class="apply-changes" (click)="applyChanges()"><i class="fas fa-check"></i></button>
-              </div>
             </div>
+          </div>
+          <div class="remaining-points-container">
+            <h3 class="remaining-points-title">{{ pointsToDistribute }} remaining points</h3>
+          </div>
+          <div class="hero-content-buttons">
+            <button (click)="goBack()"><i class="fas fa-arrow-left"></i></button>
+            <button class="apply-changes" (click)="applyChanges()"><i class="fas fa-check"></i></button>
           </div>
         </div>
       </div>
     </div>
+  </div>
+</div>
 

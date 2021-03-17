@@ -28,6 +28,7 @@ export class HeroDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.getHero();
+    this.getGuilds();
   }
 
   getHero(): void {
@@ -56,7 +57,10 @@ export class HeroDetailComponent implements OnInit {
   }
 
   changeGuild(num): void {
+    console.log(this.guilds);
+    console.log(this.hero.guild.id, num - 1);
     this.hero.guild = Object.assign({}, this.guilds[num - 1]);
+    console.log(this.hero.guild.id);
   }
 
   updatePoints(): void {
