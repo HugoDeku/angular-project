@@ -1,7 +1,38 @@
 /* DashboardComponent's private CSS styles */
 
+#global-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
 h2 {
   text-align: center;
+}
+
+.list-title {
+  color: darkgrey;
+  font-size: 2rem;
+  font-variant: all-small-caps;
+  font-weight: bold;
+  line-height: normal;
+  margin: 0;
+  text-align: center;
+}
+
+.list-end {
+  cursor: pointer;
+  text-decoration: underline;
+  text-align: right;
+  margin: 10px 20px 0px 0px;
+}
+
+.heroes-list:first-of-type {
+  border-right: 1px solid lightgray;
+  padding-right: 10px;
+}
+
+.heroes-list:last-of-type {
+  padding-left: 20px;
 }
 
 .heroes-list {
@@ -40,7 +71,7 @@ h2 {
 }
 
 .hero-card:not(:first-of-type) .hero-content-header div:first-child {
-  font-size: 1rem;
+  font-size: 0.8rem;
   min-width: min-content;
   height: 25px;
 }

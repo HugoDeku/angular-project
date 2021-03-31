@@ -2,15 +2,37 @@
   <div class="heroes-header">
     <h1>Dashboard</h1>
   </div>
-  <div class="heroes-list">
-    <div *ngFor="let hero of heroes" class="hero-card hero-content-{{ hero.guild.id }}">
-      <div class="hero-content-header">
-        <div>{{ hero.name }}</div>
+  <div id="global-wrapper">
+    <div class="title-wrapper">
+      <p class="list-title">Top Heroes</p>
+      <div class="heroes-list">
+        <div *ngFor="let hero of heroes" class="hero-card hero-content-{{ hero.guild.id }}">
+          <div class="hero-content-header">
+            <div>{{ hero.name }}</div>
+          </div>
+          <div class="hero-content-main-info">
+            <img src="assets/image/{{ hero.image }}" alt="Hero picture">
+            <div class="hero-victories"><i class="fas fa-trophy"></i>  {{ hero.victories }}</div>
+          </div>
+        </div>
       </div>
-      <div class="hero-content-main-info">
-        <img src="assets/image/{{ hero.image }}" alt="Hero picture">
-        <div class="hero-victories"><i class="fas fa-trophy"></i>  {{ hero.victories }}</div>
+      <div class="list-end" routerLink="/heroes">See all heroes <i class="fas fa-chevron-right"></i></div>
+    </div>
+
+    <div class="title-wrapper">
+      <p class="list-title">Top Weapons</p>
+      <div class="heroes-list">
+        <div *ngFor="let weapon of weapons" class="hero-card hero-content-{{ weapon.guild.id }}">
+          <div class="hero-content-header">
+            <div>{{ weapon.name }}</div>
+          </div>
+          <div class="hero-content-main-info">
+            <img src="assets/image/{{ weapon.image }}" alt="Hero picture">
+            <div class="hero-victories"><i class="fas fa-trophy"></i>  {{ weapon.victories }}</div>
+          </div>
+        </div>
       </div>
+      <div class="list-end" routerLink="/weapons">See all weapons <i class="fas fa-chevron-right"></i></div>
     </div>
   </div>
 </div>

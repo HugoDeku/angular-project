@@ -8,6 +8,7 @@ import {AngularFirestore, DocumentChangeAction} from '@angular/fire/firestore';
 import { AngularFirestoreDocument } from '@angular/fire/firestore';
 import { AngularFirestoreCollection } from '@angular/fire/firestore';
 import {map} from 'rxjs/operators';
+import {Hero} from "../data/hero";
 
 
 @Injectable({
@@ -55,6 +56,34 @@ export class WeaponService {
         );
   }
 
+  // Récupération des héros avec le plus de victoires
+  getStrongestWeapons(): Observable<Hero[]> {
+    return this.db.collection<Hero>(WeaponService.url, ref => ref.orderBy('victories', 'desc'))
+      .snapshotChanges()
+      .pipe(
+        map(liste => {
+
+          // Traitement de la liste
+          return liste.map(item => {
+
+            // Get document data
+            const data = item.payload.doc.data();
+
+            // New Hero
+            const weapon = new Weapon().fromJSON(data);
+
+            // Get document id
+            const id = item.payload.doc.id;
+            weapon.id = id;
+
+            // Use spread operator to add the id to the document data
+            return weapon;
+
+          });
+        })
+      );
+  }
+
   // Récupération d'une weapon en fonction de son id
   getWeapon(id: string): Observable<Weapon> {
 
@@ -88,7 +117,7 @@ export class WeaponService {
   updateWeapon(weapon: Weapon): void {
 
     // Update document
-    this.getWeaponDocument(weapon.id).update(Object.assign({}, weapon));
+    this.getWeaponDocument(weapon.id.toString()).update(Object.assign({}, weapon));
   }
 
   // Suppression d'un héro
