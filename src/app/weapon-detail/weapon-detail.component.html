@@ -1,0 +1,67 @@
+<div class="weapons">
+  <div class="weapons-header">
+    <h1>{{weapon?.name}} Details</h1>
+  </div>
+  <div class="weapons-list">
+    <div *ngIf="weapon" class="weapon-card weapon-content-{{ weapon?.guild?.id }}">
+      <div class="weapon-content-header">
+        <div><input id="weapon-name" [(ngModel)]="weapon.name" placeholder="name"></div>
+      </div>
+      <div class="error-message" *ngIf="messageError">
+        {{ messageError }}
+      </div>
+      <div class="weapon-content-main-info">
+        <div class="weapon-content-img-container">
+          <img src="assets/image/{{ weapon.image }}" alt="Hero picture">
+        </div>
+        <div [ngSwitch]="weapon.guild.id" class="weapon-content-info-container">
+          <label>Guild</label>
+          <div *ngSwitchCase="1" class="weapon-content-info-guild">
+            <i class="guild-active fab fa-windows" (click)="changeGuild(1)"></i>
+            <i class="fab fa-linux" (click)="changeGuild(3)"></i>
+            <i class="fab fa-apple" (click)="changeGuild(2)"></i>
+          </div>
+          <div *ngSwitchCase="2" class="weapon-content-info-guild">
+            <i class="fab fa-windows" (click)="changeGuild(1)"></i>
+            <i class="fab fa-linux" (click)="changeGuild(3)"></i>
+            <i class="guild-active fab fa-apple" (click)="changeGuild(2)"></i>
+          </div>
+          <div *ngSwitchCase="3" class="weapon-content-info-guild">
+            <i class="fab fa-windows" (click)="changeGuild(1)"></i>
+            <i class="guild-active fab fa-linux" (click)="changeGuild(3)"></i>
+            <i class="fab fa-apple" (click)="changeGuild(2)"></i>
+          </div>
+
+          <div class="weapon-stats">
+            <div class="weapon-stats-element">
+              <label>Attack</label>
+              <input type="number" step="1" id="weapon-attack" class="weapon-content-info-attack" [(ngModel)]="weapon.attack"
+                     placeholder=10>
+            </div>
+            <div class="weapon-stats-element">
+              <label>Health</label>
+              <input type="number" step="1" id="weapon-health" class="weapon-content-info-health" [(ngModel)]="weapon.health">
+            </div>
+            <div class="weapon-stats-element">
+              <label>Damage</label>
+              <input type="number" step="1" id="weapon-damage" class="weapon-content-info-damage" [(ngModel)]="weapon.damage">
+            </div>
+            <div class="weapon-stats-element">
+              <label>Dodge</label>
+              <input type="number" step="1" id="weapon-dodge" class="weapon-content-info-dodge" (change)="updatePoints()"
+                     [(ngModel)]="weapon.dodge">
+            </div>
+          </div>
+          <div class="remaining-points-container">
+            <h3 class="remaining-points-title">{{ pointsToDistribute }} remaining points</h3>
+          </div>
+          <div class="weapon-content-buttons">
+            <button (click)="goBack()"><i class="fas fa-arrow-left"></i></button>
+            <button class="apply-changes" (click)="applyChanges()"><i class="fas fa-check"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

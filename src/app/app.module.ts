@@ -11,6 +11,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import {environment} from '../environments/environment';
 import {AngularFireModule} from '@angular/fire';
 import { WeaponsComponent } from './weapons/weapons.component';
+import { WeaponDetailComponent } from './weapon-detail/weapon-detail.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { WeaponsComponent } from './weapons/weapons.component';
     HeroDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    WeaponsComponent
+    WeaponsComponent,
+    WeaponDetailComponent
   ],
   imports: [
     BrowserModule,

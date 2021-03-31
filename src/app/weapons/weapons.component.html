@@ -1,1 +1,45 @@
-<p>weapons works!</p>
+<div class="weapons">
+  <div class="weapons-header">
+    <h1>All Weapons</h1>
+  </div>
+  <div class="weapons-list">
+    <div *ngFor="let weapon of weapons" class="weapon-card weapon-content-{{ weapon.guild.id }}">
+      <div class="weapon-content-header">
+        <div>{{ weapon.name }}</div>
+        <div routerLink="/weapon/{{weapon.id}}" class="weapon-card-update"><i class="fas fa-cog"></i></div>
+      </div>
+      <div class="weapon-content-main-info">
+        <div class="weapon-content-img-container">
+          <img src="assets/image/{{ weapon.image }}" alt="Weapon picture">
+        </div>
+        <div class="weapon-content-info-container">
+          <label>Guild</label>
+          <div [ngSwitch]="weapon.guild.id" class="weapon-content-info-guild">
+            <i *ngSwitchCase="1" class="fab fa-windows"></i>
+            <i *ngSwitchCase="3" class="fab fa-linux"></i>
+            <i *ngSwitchCase="2" class="fab fa-apple"></i>
+          </div>
+
+          <div class="weapon-stats">
+            <div class="weapon-stats-element">
+              <label>Attack</label>
+              <div class="weapon-content-info-attack">{{ weapon.attack }}</div>
+            </div>
+            <div class="weapon-stats-element">
+              <label>Health</label>
+              <div class="weapon-content-info-health">{{ weapon.health }}</div>
+            </div>
+            <div class="weapon-stats-element">
+              <label>Damage</label>
+              <div class="weapon-content-info-damage">{{ weapon.damage }}</div>
+            </div>
+            <div class="weapon-stats-element">
+              <label>Dodge</label>
+              <div class="weapon-content-info-dodge">{{ weapon.dodge }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

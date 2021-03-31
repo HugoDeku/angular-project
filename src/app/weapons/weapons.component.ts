@@ -6,7 +6,7 @@ import {MessageService} from '../services/message.service';
 @Component({
     selector: 'app-weapons',
     templateUrl: './weapons.component.html',
-    styleUrls: ['./weapons.component.css']
+    styleUrls: ['../app.component.css']
 })
 export class WeaponsComponent implements OnInit {
 
