@@ -1,3 +1,40 @@
-<div class="battle-content-main">
+<div class="battle">
+  <div class="battle-header">
+    <h1>New battle</h1>
+    <p>Start battle !</p>
+  </div>
+  <div class="battle-content">
+    <div class="battle-player">
+      <div class="heroes-selection">
+        <div class="arrow-left">
 
+        </div>
+        <div class="display-heroes" *ngFor="let hero of listHeroes">
+          <div class="hero-badge">
+
+          </div>
+        </div>
+        <div class="arrow-right">
+
+        </div>
+      </div>
+      <div class="weapons-selection">
+        <div class="arrow-left">
+
+        </div>
+        <div class="display-weapons" *ngFor="let weapon of weaponsAllowedPlayerOne">
+          <div class="weapon-badge">
+
+          </div>
+        </div>
+        <div class="arrow-right">
+
+        </div>
+      </div>
+    </div>
+    <div>
+      <p>VS</p>
+    </div>
+
+  </div>
 </div>
