@@ -26,7 +26,7 @@ export class HeroService {
   getHeroes(): Observable<Hero[]> {
 
     //
-    return this.db.collection<Hero>(HeroService.url,ref => ref.orderBy('id', 'asc'))
+    return this.db.collection<Hero>(HeroService.url, ref => ref.orderBy('id', 'asc'))
       .snapshotChanges()
       .pipe(
         map(liste => {
