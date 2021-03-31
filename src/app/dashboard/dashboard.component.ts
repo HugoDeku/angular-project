@@ -5,7 +5,7 @@ import { HeroService } from '../services/hero.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['../app.component.css']
+  styleUrls: ['../app.component.css', './dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
   heroes: Hero[] = [];
@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getHeroes(): void {
-    this.heroService.getHeroes()
-      .subscribe(heroes => this.heroes = heroes.slice(1, 5));
+    this.heroService.getStrongestHeroes()
+      .subscribe(heroes => this.heroes = heroes.slice(0, 4));
   }
 }

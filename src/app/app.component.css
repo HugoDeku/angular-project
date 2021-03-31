@@ -181,18 +181,12 @@ nav a.active {
   height: 100%;
 }
 
-.hero-content-img-container {
-  width: 80%;
-  height: 80%;
+.hero-content-main-info img {
+  padding: 50px 50px 50px 0px;
+  margin: 30px 30px 30px 10px;
+  width: 70%;
   border-right: 1px solid lightgray;
-  padding-right: 30px;
   overflow: hidden;
-}
-
-.hero-content-img-container img {
-  object-fit: cover;
-  width: 150%;
-  object-position: -70px -70px;
 }
 
 .weapon-content-img-container {

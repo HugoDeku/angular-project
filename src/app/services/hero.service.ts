@@ -82,6 +82,34 @@ export class HeroService {
       );
   }
 
+  // Récupération des héros avec le plus de victoires
+  getStrongestHeroes(): Observable<Hero[]> {
+    return this.db.collection<Hero>(HeroService.url, ref => ref.orderBy('victories', 'desc'))
+      .snapshotChanges()
+      .pipe(
+        map(liste => {
+
+          // Traitement de la liste
+          return liste.map(item => {
+
+            // Get document data
+            const data = item.payload.doc.data();
+
+            // New Hero
+            const hero = new Hero().fromJSON(data);
+
+            // Get document id
+            const id = item.payload.doc.id;
+            hero.id = id;
+
+            // Use spread operator to add the id to the document data
+            return hero;
+
+          });
+        })
+      );
+  }
+
   // Ajout d'un héro
   addHero(hero: Hero): Promise<void> {
     return this.db.collection<Hero>(HeroService.url).doc(hero.id.toString()).set(Object.assign({}, hero));

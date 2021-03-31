@@ -4,47 +4,80 @@ h2 {
   text-align: center;
 }
 
-.heroes-menu {
+.heroes-list {
   padding: 0;
-  margin: auto;
-  max-width: 1000px;
-
-  /* flexbox */
+  overflow: hidden;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: space-around;
-  align-content: flex-start;
-  align-items: flex-start;
+  max-height: 850px;
+  width: 665px;
 }
 
-a {
-  background-color: #3f525c;
-  border-radius: 2px;
-  padding: 1rem;
-  font-size: 1.2rem;
-  text-decoration: none;
-  display: inline-block;
-  color: #fff;
-  text-align: center;
-  width: 100%;
-  min-width: 70px;
-  margin: .5rem auto;
-  box-sizing: border-box;
-
-  /* flexbox */
-  order: 0;
-  flex: 0 1 auto;
-  align-self: auto;
+.hero-card {
+  height: 183px;
+  min-width: 90px;
+  width: 90px;
+  margin: 10px 0 10px 0;
+  padding: 20px 30px 10px 30px;
+  align-items: center;
 }
 
-@media (min-width: 600px) {
-  a {
-    width: 18%;
-    box-sizing: content-box;
-  }
+.hero-card:first-of-type {
+  padding: 40px 60px 40px 60px;
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 600px;
+  min-width: 300px;
 }
 
-a:hover {
-  background-color: #000;
+.hero-card:last-of-type {
+  margin-right: 0px;
+}
+
+.hero-content-header div:first-child {
+  margin: 0;
+}
+
+.hero-card:not(:first-of-type) .hero-content-header div:first-child {
+  font-size: 1rem;
+  min-width: min-content;
+  height: 25px;
+}
+
+.hero-content-main-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: min-content;
+}
+.hero-content-main-info img {
+  border: none;
+  margin: 0;
+  padding: 40px 20px 40px 20px;
+  height: 450px;
+  width: auto;
+}
+
+.hero-card:not(:first-of-type) .hero-content-main-info img {
+  padding: 0;
+  width: auto;
+  height: auto;
+  max-height: 100px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.hero-victories {
+  font-size: 1.5rem;
+}
+.hero-card:nth-of-type(3) .hero-victories {
+  color: #b85233;
+}
+.hero-card:nth-of-type(2) .hero-victories {
+  color: silver;
+}
+.hero-card:first-of-type .hero-victories {
+  font-size: 2rem;
+  color: gold;
 }
