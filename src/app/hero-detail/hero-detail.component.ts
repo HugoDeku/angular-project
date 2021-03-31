@@ -48,11 +48,12 @@ export class HeroDetailComponent implements OnInit {
           this.getGuilds();
           this.hero = new Hero();
           this.hero.name = this.defaultsName[Math.round(Math.random() * (this.defaultsName.length - 1))];
-          this.hero.description = "Default description";
+          this.hero.description = 'Default description';
           this.hero.attack = Math.round(Math.random() * 10);
           this.hero.dodge = Math.round(Math.random() * 10);
           this.hero.damage = Math.round(Math.random() * 10);
           this.hero.health = Math.round(Math.random() * 10);
+          this.hero.victories = 0;
           this.updatePoints();
         }
     }

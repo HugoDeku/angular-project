@@ -11,4 +11,5 @@ export class Hero extends Serializable{
   dodge: number;
   damage: number;
   guild: Guild;
+  victories: number;
 }
