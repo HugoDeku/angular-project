@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Observable, of } from 'rxjs';
+import {Observable, of, Subject} from 'rxjs';
 
 import { Hero } from '../data/hero';
 import {MessageService} from './message.service';
@@ -8,7 +8,7 @@ import {MessageService} from './message.service';
 import {AngularFirestore, DocumentChangeAction} from '@angular/fire/firestore';
 import { AngularFirestoreDocument } from '@angular/fire/firestore';
 import { AngularFirestoreCollection } from '@angular/fire/firestore';
-import {map} from 'rxjs/operators';
+import {first, map} from 'rxjs/operators';
 import {Guild} from '../data/guild';
 
 
@@ -18,14 +18,15 @@ import {Guild} from '../data/guild';
 export class HeroService {
 
   private static url = 'heroes';
-  private static urlGuild = 'guild';
 
   constructor(private messageService: MessageService,
-              private db: AngularFirestore) { }
+              private db: AngularFirestore) {
+  }
+
   getHeroes(): Observable<Hero[]> {
 
     //
-    return this.db.collection<Hero>(HeroService.url)
+    return this.db.collection<Hero>(HeroService.url,ref => ref.orderBy('id', 'asc'))
       .snapshotChanges()
       .pipe(
         map(liste => {
@@ -82,15 +83,15 @@ export class HeroService {
   }
 
   // Ajout d'un héro
-  addHero(hero: Hero): void {
-    this.db.collection<Hero>(HeroService.url).add(Object.assign({}, hero));
+  addHero(hero: Hero): Promise<void> {
+    return this.db.collection<Hero>(HeroService.url).doc(hero.id.toString()).set(Object.assign({}, hero));
   }
 
   // Modification d'un héro
   updateHero(hero: Hero): void {
 
     // Update document
-    this.getHeroDocument(hero.id).update(Object.assign({}, hero));
+    this.getHeroDocument(hero.id.toString()).update(Object.assign({}, hero));
   }
 
   // Suppression d'un héro
@@ -108,35 +109,32 @@ export class HeroService {
     return this.db.doc<Hero>(HeroService.url + `/` + id);
   }
 
-  getGuilds(): Observable<Guild[]> {
-    return this.db.collection<Guild>(HeroService.urlGuild)
-      .snapshotChanges()
-      .pipe(
-        map(liste => {
-
-          // log
-          console.log('getGuilds()');
-
+  getLastId(): Observable<number>{
+    const subject = new Subject<number>();
+    this.db.collection<Hero>(HeroService.url, ref => ref.orderBy('id', 'desc')
+      .limit(1))
+      .valueChanges()
+      .pipe(first())
+      .subscribe(
+        hero => {
+          subject.next((+(hero[0].id)) + 1);
+        }
+      );
+    return subject.asObservable();
+  }
+  reset(): void{
+    this.db.collection<Hero>(HeroService.url)
+      .valueChanges()
+      .pipe(first())
+      .subscribe(
+        liste => {
           // Traitement de la liste
-          return liste.map(item => {
-
-            // Get document data
-            const data = item.payload.doc.data();
-
-            // New Hero
-            const guild = new Guild().fromJSON(data);
-
-            // Get document id
-            const id = item.payload.doc.id;
-            guild.id = id;
-
-            // log
-            console.log('   guild ' + id);
-
-            // Use spread operator to add the id to the document data
-            return guild;
-          });
-        })
+            liste.map(hero => {
+              if (hero.id > 9){
+                this.deleteHero(hero.id.toString());
+              }
+            });
+        }
       );
   }
 }

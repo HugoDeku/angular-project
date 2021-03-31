@@ -2,7 +2,7 @@ import { Guild } from './guild';
 import {Serializable} from './serializable';
 
 export class Hero extends Serializable{
-  id: string;
+  id: number;
   name: string;
   description: string;
   health: number;

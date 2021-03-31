@@ -14,7 +14,7 @@
         <div class="hero-content-img-container">
           <img src="assets/image/{{ hero.image }}" alt="Hero picture">
         </div>
-        <div [ngSwitch]="hero.guild.id" class="hero-content-info-container">
+        <div *ngIf="hero.guild !== undefined" [ngSwitch]="hero.guild.id" class="hero-content-info-container">
           <label>Description</label>
           <textarea id="hero-description" [(ngModel)]="hero.description" placeholder="description" rows="2"
                     cols="50"></textarea>
@@ -38,16 +38,19 @@
           <div class="hero-stats">
             <div class="hero-stats-element">
               <label>Attack</label>
-              <input type="number" step="1" id="hero-attack" class="hero-content-info-attack" [(ngModel)]="hero.attack"
+              <input type="number" step="1" id="hero-attack" class="hero-content-info-attack" (change)="updatePoints()"
+                     [(ngModel)]="hero.attack"
                      placeholder=10>
             </div>
             <div class="hero-stats-element">
               <label>Health</label>
-              <input type="number" step="1" id="hero-health" class="hero-content-info-health" [(ngModel)]="hero.health">
+              <input type="number" step="1" id="hero-health" class="hero-content-info-health" (change)="updatePoints()"
+                     [(ngModel)]="hero.health">
             </div>
             <div class="hero-stats-element">
               <label>Damage</label>
-              <input type="number" step="1" id="hero-damage" class="hero-content-info-damage" [(ngModel)]="hero.damage">
+              <input type="number" step="1" id="hero-damage" class="hero-content-info-damage" (change)="updatePoints()"
+                     [(ngModel)]="hero.damage">
             </div>
             <div class="hero-stats-element">
               <label>Dodge</label>
