@@ -11,7 +11,7 @@ import {IndexPlayer} from '../data/indexPlayer';
 @Component({
   selector: 'app-battle',
   templateUrl: './battle.component.html',
-  styleUrls: ['./battle.component.css']
+  styleUrls: ['../app.component.css', './battle.component.css']
 })
 export class BattleComponent implements OnInit {
 
