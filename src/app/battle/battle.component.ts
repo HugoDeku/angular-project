@@ -25,12 +25,15 @@ export class BattleComponent implements OnInit {
 
   indexPlayerOne: IndexPlayer;
   indexPlayerTwo: IndexPlayer;
+  isStarted: boolean;
 
   constructor(private route: ActivatedRoute,
               private heroService: HeroService,
               private location: Location,
               private router: Router,
-              private weaponService: WeaponService) { }
+              private weaponService: WeaponService) {
+    this.isStarted = false;
+  }
 
   ngOnInit(): void {
     this.loadHeroesAndWeapons();
@@ -133,5 +136,9 @@ export class BattleComponent implements OnInit {
     if (this.indexPlayerTwo.weapon < this.weaponsAllowedPlayerTwo.length - 1){
       this.heroWeaponPlayerTwo.weapon = this.weaponsAllowedPlayerTwo[++this.indexPlayerTwo.weapon];
     }
+  }
+
+  validate(): void{
+    this.isStarted = true;
   }
 }

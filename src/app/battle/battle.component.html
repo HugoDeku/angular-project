@@ -1,4 +1,4 @@
-<div class="battle">
+<div class="battle" *ngIf="!isStarted">
   <div class="battle-header">
     <h1>New battle</h1>
     <p>Start battle !</p>
@@ -38,3 +38,4 @@
 
   </div>
 </div>
+<app-fight *ngIf="isStarted" [heroWeapon1]="heroWeaponPlayerOne" [heroWeapon2]="heroWeaponPlayerTwo"></app-fight>

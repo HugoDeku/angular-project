@@ -13,6 +13,7 @@ import {AngularFireModule} from '@angular/fire';
 import { WeaponsComponent } from './weapons/weapons.component';
 import { WeaponDetailComponent } from './weapon-detail/weapon-detail.component';
 import { BattleComponent } from './battle/battle.component';
+import { FightComponent } from './fight/fight.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { BattleComponent } from './battle/battle.component';
     DashboardComponent,
     WeaponsComponent,
     WeaponDetailComponent,
-    BattleComponent
+    BattleComponent,
+    FightComponent
   ],
   imports: [
     BrowserModule,
