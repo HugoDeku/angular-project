@@ -35,14 +35,14 @@ nav a.active {
   flex-direction: column;
 }
 
-.heroes-header, .weapons-header {
+.heroes-header, .weapons-header, .battle-header {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
   padding: 0 10% 0 10%;
 }
 
-.heroes-header p, .weapons-header p {
+.heroes-header p, .weapons-header p, .battle-header p {
   height: 50px;
   width: 50px;
   display: flex;
@@ -338,6 +338,16 @@ nav a.active {
 .weapon-content-3 #weapon-attack:hover, .weapon-content-3 #weapon-damage:hover, .weapon-content-3 #weapon-dodge:hover, .weapon-content-3 #weapon-health:hover {
   outline: none !important;
   border-color: #FF9D00;
+}
+
+.list-title {
+  color: darkgrey;
+  font-size: 2rem;
+  font-variant: all-small-caps;
+  font-weight: bold;
+  line-height: normal;
+  margin: 0;
+  text-align: center;
 }
 
 

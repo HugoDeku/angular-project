@@ -9,16 +9,6 @@ h2 {
   text-align: center;
 }
 
-.list-title {
-  color: darkgrey;
-  font-size: 2rem;
-  font-variant: all-small-caps;
-  font-weight: bold;
-  line-height: normal;
-  margin: 0;
-  text-align: center;
-}
-
 .list-end {
   cursor: pointer;
   text-decoration: underline;
