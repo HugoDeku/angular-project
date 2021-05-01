@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {HeroService} from '../services/hero.service';
 import {Location} from '@angular/common';
@@ -7,6 +7,7 @@ import {Hero} from '../data/hero';
 import {Weapon} from '../data/weapon';
 import {HeroWeapon} from '../data/hero_weapons';
 import {IndexPlayer} from '../data/indexPlayer';
+import {max} from "rxjs/operators";
 
 @Component({
   selector: 'app-battle',
@@ -64,10 +65,10 @@ export class BattleComponent implements OnInit {
     );
   }
 
-  updateListWeaponsPlayerOne(): void{
+  updateListWeaponsPlayerOne(): void {
     this.weaponsAllowedPlayerOne = [];
-    for (const weapon of this.listWeapons){
-      if (weapon.guild.id === this.heroWeaponPlayerOne.hero.guild.id){
+    for (const weapon of this.listWeapons) {
+      if (weapon.guild.id === this.heroWeaponPlayerOne.hero.guild.id) {
         this.weaponsAllowedPlayerOne.push(weapon);
       }
     }
@@ -75,10 +76,10 @@ export class BattleComponent implements OnInit {
     this.heroWeaponPlayerOne.weapon = this.weaponsAllowedPlayerOne[this.indexPlayerOne.hero];
   }
 
-  updateListWeaponsPlayerTwo(): void{
+  updateListWeaponsPlayerTwo(): void {
     this.weaponsAllowedPlayerTwo = [];
-    for (const weapon of this.listWeapons){
-      if (weapon.guild.id === this.heroWeaponPlayerTwo.hero.guild.id){
+    for (const weapon of this.listWeapons) {
+      if (weapon.guild.id === this.heroWeaponPlayerTwo.hero.guild.id) {
         this.weaponsAllowedPlayerTwo.push(weapon);
       }
     }
@@ -86,59 +87,97 @@ export class BattleComponent implements OnInit {
     this.heroWeaponPlayerTwo.weapon = this.weaponsAllowedPlayerTwo[this.indexPlayerTwo.hero];
   }
 
-  leftHeroPlayerOne(): void{
-    if (this.indexPlayerOne.hero > 0){
+  leftHeroPlayerOne(): void {
+    if (this.indexPlayerOne.hero > 0) {
       this.heroWeaponPlayerOne.hero = this.listHeroes[--this.indexPlayerOne.hero];
       this.updateListWeaponsPlayerOne();
     }
   }
 
-  rightHeroPlayerOne(): void{
-    if (this.indexPlayerOne.hero < this.listHeroes.length - 1){
+  rightHeroPlayerOne(): void {
+    if (this.indexPlayerOne.hero < this.listHeroes.length - 1) {
       this.heroWeaponPlayerOne.hero = this.listHeroes[++this.indexPlayerOne.hero];
       this.updateListWeaponsPlayerOne();
     }
   }
 
-  leftWeaponPlayerOne(): void{
-    if (this.indexPlayerOne.weapon > 0){
+  leftWeaponPlayerOne(): void {
+    if (this.indexPlayerOne.weapon > 0) {
       this.heroWeaponPlayerOne.weapon = this.weaponsAllowedPlayerOne[--this.indexPlayerOne.weapon];
     }
   }
 
-  rightWeaponPlayerOne(): void{
-    if (this.indexPlayerOne.weapon < this.weaponsAllowedPlayerOne.length - 1){
+  rightWeaponPlayerOne(): void {
+    if (this.indexPlayerOne.weapon < this.weaponsAllowedPlayerOne.length - 1) {
       this.heroWeaponPlayerOne.weapon = this.indexPlayerOne[++this.indexPlayerOne.weapon];
     }
   }
 
-  leftHeroPlayerTwo(): void{
-    if (this.indexPlayerTwo.hero > 0){
+  leftHeroPlayerTwo(): void {
+    if (this.indexPlayerTwo.hero > 0) {
       this.heroWeaponPlayerTwo.hero = this.listHeroes[--this.indexPlayerTwo.hero];
       this.updateListWeaponsPlayerTwo();
     }
   }
 
-  rightHeroPlayerTwo(): void{
-    if (this.indexPlayerTwo.hero < this.listHeroes.length - 1){
+  rightHeroPlayerTwo(): void {
+    if (this.indexPlayerTwo.hero < this.listHeroes.length - 1) {
       this.heroWeaponPlayerTwo.hero = this.listHeroes[++this.indexPlayerTwo.hero];
       this.updateListWeaponsPlayerTwo();
     }
   }
 
-  leftWeaponPlayerTwo(): void{
-    if (this.indexPlayerTwo.weapon > 0){
+  leftWeaponPlayerTwo(): void {
+    if (this.indexPlayerTwo.weapon > 0) {
       this.heroWeaponPlayerTwo.weapon = this.weaponsAllowedPlayerTwo[--this.indexPlayerTwo.weapon];
     }
   }
 
-  rightWeaponPlayerTwo(): void{
-    if (this.indexPlayerTwo.weapon < this.weaponsAllowedPlayerTwo.length - 1){
+  rightWeaponPlayerTwo(): void {
+    if (this.indexPlayerTwo.weapon < this.weaponsAllowedPlayerTwo.length - 1) {
       this.heroWeaponPlayerTwo.weapon = this.weaponsAllowedPlayerTwo[++this.indexPlayerTwo.weapon];
     }
   }
 
-  validate(): void{
+  validate(): void {
     this.isStarted = true;
+  }
+
+  arrow(item, side, player): void {
+    const targetContainer = document.getElementById(item + '-' + player);
+    const maxScroll = targetContainer.scrollWidth - targetContainer.clientWidth;
+    const actualScroll = targetContainer.scrollLeft;
+    const cardWidth = 430;
+    let newScroll;
+
+    if (side === 'left') {
+      if (actualScroll - cardWidth <= 5) {
+        newScroll = 5;
+      } else {
+        newScroll = actualScroll - cardWidth;
+      }
+    } else {
+      if (actualScroll + cardWidth >= maxScroll) {
+        newScroll = maxScroll;
+      } else {
+        newScroll = actualScroll + cardWidth;
+      }
+    }
+
+    targetContainer.scrollTo({
+      top: 0,
+      left: newScroll,
+      behavior: 'smooth'
+    });
+  }
+
+  select(e, item, id, player): void {
+    console.log(item, id, player);
+    const scrollable = e.target.closest('.battle-item-window');
+    const card = e.target.closest('.battle-item-card');
+    const previouslySelected = scrollable.getElementsByClassName('selected-item')[0];
+    if (previouslySelected) { previouslySelected.classList.remove('selected-item'); }
+
+    card.classList.add('selected-item');
   }
 }

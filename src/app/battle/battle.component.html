@@ -7,85 +7,98 @@
     <div class="battle-player">
       <p class="list-title">Player 1</p>
       <div class="battle-item-selection">
-        <i class="arrow-right fas fa-arrow-circle-left"></i>
-        <div class="battle-item-window">
-          <div  *ngFor="let hero of listHeroes" class="battle-item-card hero-content-{{ hero?.guild?.id }}">
+        <i class="arrow-right fas fa-arrow-circle-left" (click)="arrow('hero', 'left', '1')"></i>
+        <div id="hero-1" class="battle-item-window">
+          <div *ngFor="let hero of listHeroes" class="battle-item-card hero-content-{{ hero?.guild?.id }}">
             <div class="battle-item-name">{{ hero.name }}</div>
             <div class="battle-info">
               <img src="assets/image/{{ hero.image }}" alt="Hero picture">
-              <div *ngIf="hero.guild !== undefined" [ngSwitch]="hero.guild.id" class="battle-spec">
+              <div *ngIf="hero.guild !== undefined" [ngSwitch]="hero.guild.id">
                 <div class="battle-spec-label">Guild</div>
                 <div *ngSwitchCase="1" class="battle-spec-data"><i class="fab fa-windows"></i></div>
                 <div *ngSwitchCase="2" class="battle-spec-data"><i class="fab fa-apple"></i></div>
                 <div *ngSwitchCase="3" class="battle-spec-data"><i class="fab fa-linux"></i></div>
               </div>
-              <div class="battle-item-specs">
-                <div class="battle-spec">
-                  <div class="battle-spec-label">Attack</div>
-                  <div class="battle-spec-data">{{ hero.attack }}</div>
+              <div>
+                <div class="battle-item-specs">
+                  <div class="battle-spec">
+                    <div class="battle-spec-label">Attack</div>
+                    <div class="battle-spec-data">{{ hero.attack }}</div>
+                  </div>
+                  <div class="battle-spec">
+                    <div class="battle-spec-label">Health</div>
+                    <div class="battle-spec-data">{{ hero.health }}</div>
+                  </div>
+                  <div class="battle-spec">
+                    <div class="battle-spec-label">Damage</div>
+                    <div class="battle-spec-data">{{ hero.damage }}</div>
+                  </div>
+                  <div class="battle-spec">
+                    <div class="battle-spec-label">Dodge</div>
+                    <div class="battle-spec-data">{{ hero.dodge }}</div>
+                  </div>
                 </div>
-                <div class="battle-spec">
-                  <div class="battle-spec-label">Health</div>
-                  <div class="battle-spec-data">{{ hero.health }}</div>
-                </div>
-                <div class="battle-spec">
-                  <div class="battle-spec-label">Damage</div>
-                  <div class="battle-spec-data">{{ hero.damage }}</div>
-                </div>
-                <div class="battle-spec">
-                  <div class="battle-spec-label">Dodge</div>
-                  <div class="battle-spec-data">{{ hero.dodge }}</div>
+                <div (click)="select($event, 'hero', hero.id.toString(), '1')" class="battle-select-button">
+                  SELECT
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <i class="arrow-right fas fa-arrow-circle-right"></i>
+        <i class="arrow-right fas fa-arrow-circle-right" (click)="arrow('hero', 'right', '1')"></i>
       </div>
       <div class="battle-item-selection">
-        <i class="arrow-right fas fa-arrow-circle-left"></i>
-        <div class="battle-item-window">
+        <i class="arrow-right fas fa-arrow-circle-left" (click)="arrow('weapon', 'left', '1')"></i>
+        <div id="weapon-1" class="battle-item-window">
           <div *ngFor="let weapon of listWeapons" class="battle-item-card hero-content-{{ weapon?.guild?.id }}">
             <div class="battle-item-name">{{ weapon.name }}</div>
             <div class="battle-info">
               <img src="assets/image/{{ weapon.image }}" alt="Hero picture">
               <div *ngIf="weapon.guild !== undefined" [ngSwitch]="weapon.guild.id" class="battle-spec">
                 <div class="battle-spec-label">Guild</div>
-                <div *ngSwitchCase="1" class="battle-spec-data"><i class="fab fa-windows" style="color: #0097F5"></i></div>
-                <div *ngSwitchCase="2" class="battle-spec-data"><i class="fab fa-apple" style="color: #CE0028"></i></div>
-                <div *ngSwitchCase="3" class="battle-spec-data"><i class="fab fa-linux" style="color: #FF9D00"></i></div>
+                <div *ngSwitchCase="1" class="battle-spec-data"><i class="fab fa-windows" style="color: #0097F5"></i>
+                </div>
+                <div *ngSwitchCase="2" class="battle-spec-data"><i class="fab fa-apple" style="color: #CE0028"></i>
+                </div>
+                <div *ngSwitchCase="3" class="battle-spec-data"><i class="fab fa-linux" style="color: #FF9D00"></i>
+                </div>
               </div>
-              <div class="battle-item-specs">
-                <div class="battle-spec">
-                  <div class="battle-spec-label">Attack</div>
-                  <div class="battle-spec-data">{{ weapon.attack }}</div>
+              <div>
+                <div class="battle-item-specs">
+                  <div class="battle-spec">
+                    <div class="battle-spec-label">Attack</div>
+                    <div class="battle-spec-data">{{ weapon.attack }}</div>
+                  </div>
+                  <div class="battle-spec">
+                    <div class="battle-spec-label">Health</div>
+                    <div class="battle-spec-data">{{ weapon.health }}</div>
+                  </div>
+                  <div class="battle-spec">
+                    <div class="battle-spec-label">Damage</div>
+                    <div class="battle-spec-data">{{ weapon.damage }}</div>
+                  </div>
+                  <div class="battle-spec">
+                    <div class="battle-spec-label">Dodge</div>
+                    <div class="battle-spec-data">{{ weapon.dodge }}</div>
+                  </div>
                 </div>
-                <div class="battle-spec">
-                  <div class="battle-spec-label">Health</div>
-                  <div class="battle-spec-data">{{ weapon.health }}</div>
-                </div>
-                <div class="battle-spec">
-                  <div class="battle-spec-label">Damage</div>
-                  <div class="battle-spec-data">{{ weapon.damage }}</div>
-                </div>
-                <div class="battle-spec">
-                  <div class="battle-spec-label">Dodge</div>
-                  <div class="battle-spec-data">{{ weapon.dodge }}</div>
+                <div (click)="select($event, 'weapon', weapon.id.toString(), '1')" class="battle-select-button">
+                  SELECT
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <i class="arrow-right fas fa-arrow-circle-right"></i>
+        <i class="arrow-right fas fa-arrow-circle-right" (click)="arrow('weapon', 'right', '1')"></i>
       </div>
     </div>
     <div class="list-title">VS</div>
     <div class="battle-player">
       <p class="list-title">Player 2</p>
       <div class="battle-item-selection">
-        <i class="arrow-right fas fa-arrow-circle-left"></i>
-        <div class="battle-item-window">
-          <div  *ngFor="let hero of listHeroes" class="battle-item-card hero-content-{{ hero?.guild?.id }}">
+        <i class="arrow-right fas fa-arrow-circle-left" (click)="arrow('hero', 'left', '2')"></i>
+        <div id="hero-2" class="battle-item-window">
+          <div *ngFor="let hero of listHeroes" class="battle-item-card hero-content-{{ hero?.guild?.id }}">
             <div class="battle-item-name">{{ hero.name }}</div>
             <div class="battle-info">
               <img src="assets/image/{{ hero.image }}" alt="Hero picture">
@@ -95,64 +108,77 @@
                 <div *ngSwitchCase="2" class="battle-spec-data"><i class="fab fa-apple"></i></div>
                 <div *ngSwitchCase="3" class="battle-spec-data"><i class="fab fa-linux"></i></div>
               </div>
-              <div class="battle-item-specs">
-                <div class="battle-spec">
-                  <div class="battle-spec-label">Attack</div>
-                  <div class="battle-spec-data">{{ hero.attack }}</div>
+              <div>
+                <div class="battle-item-specs">
+                  <div class="battle-spec">
+                    <div class="battle-spec-label">Attack</div>
+                    <div class="battle-spec-data">{{ hero.attack }}</div>
+                  </div>
+                  <div class="battle-spec">
+                    <div class="battle-spec-label">Health</div>
+                    <div class="battle-spec-data">{{ hero.health }}</div>
+                  </div>
+                  <div class="battle-spec">
+                    <div class="battle-spec-label">Damage</div>
+                    <div class="battle-spec-data">{{ hero.damage }}</div>
+                  </div>
+                  <div class="battle-spec">
+                    <div class="battle-spec-label">Dodge</div>
+                    <div class="battle-spec-data">{{ hero.dodge }}</div>
+                  </div>
                 </div>
-                <div class="battle-spec">
-                  <div class="battle-spec-label">Health</div>
-                  <div class="battle-spec-data">{{ hero.health }}</div>
-                </div>
-                <div class="battle-spec">
-                  <div class="battle-spec-label">Damage</div>
-                  <div class="battle-spec-data">{{ hero.damage }}</div>
-                </div>
-                <div class="battle-spec">
-                  <div class="battle-spec-label">Dodge</div>
-                  <div class="battle-spec-data">{{ hero.dodge }}</div>
+                <div (click)="select($event, 'hero', hero.id.toString(), '2')" class="battle-select-button">
+                  SELECT
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <i class="arrow-right fas fa-arrow-circle-right"></i>
+        <i class="arrow-right fas fa-arrow-circle-right" (click)="arrow('hero', 'right', '2')"></i>
       </div>
       <div class="battle-item-selection">
-        <i class="arrow-right fas fa-arrow-circle-left"></i>
-        <div class="battle-item-window">
+        <i class="arrow-right fas fa-arrow-circle-left" (click)="arrow('weapon', 'left', '2')"></i>
+        <div id="weapon-2" class="battle-item-window">
           <div *ngFor="let weapon of listWeapons" class="battle-item-card hero-content-{{ weapon?.guild?.id }}">
             <div class="battle-item-name">{{ weapon.name }}</div>
             <div class="battle-info">
               <img src="assets/image/{{ weapon.image }}" alt="Hero picture">
               <div *ngIf="weapon.guild !== undefined" [ngSwitch]="weapon.guild.id" class="battle-spec">
                 <div class="battle-spec-label">Guild</div>
-                <div *ngSwitchCase="1" class="battle-spec-data"><i class="fab fa-windows" style="color: #0097F5"></i></div>
-                <div *ngSwitchCase="2" class="battle-spec-data"><i class="fab fa-apple" style="color: #CE0028"></i></div>
-                <div *ngSwitchCase="3" class="battle-spec-data"><i class="fab fa-linux" style="color: #FF9D00"></i></div>
+                <div *ngSwitchCase="1" class="battle-spec-data"><i class="fab fa-windows" style="color: #0097F5"></i>
+                </div>
+                <div *ngSwitchCase="2" class="battle-spec-data"><i class="fab fa-apple" style="color: #CE0028"></i>
+                </div>
+                <div *ngSwitchCase="3" class="battle-spec-data"><i class="fab fa-linux" style="color: #FF9D00"></i>
+                </div>
               </div>
-              <div class="battle-item-specs">
-                <div class="battle-spec">
-                  <div class="battle-spec-label">Attack</div>
-                  <div class="battle-spec-data">{{ weapon.attack }}</div>
+              <div>
+                <div class="battle-item-specs">
+                  <div class="battle-spec">
+                    <div class="battle-spec-label">Attack</div>
+                    <div class="battle-spec-data">{{ weapon.attack }}</div>
+                  </div>
+                  <div class="battle-spec">
+                    <div class="battle-spec-label">Health</div>
+                    <div class="battle-spec-data">{{ weapon.health }}</div>
+                  </div>
+                  <div class="battle-spec">
+                    <div class="battle-spec-label">Damage</div>
+                    <div class="battle-spec-data">{{ weapon.damage }}</div>
+                  </div>
+                  <div class="battle-spec">
+                    <div class="battle-spec-label">Dodge</div>
+                    <div class="battle-spec-data">{{ weapon.dodge }}</div>
+                  </div>
                 </div>
-                <div class="battle-spec">
-                  <div class="battle-spec-label">Health</div>
-                  <div class="battle-spec-data">{{ weapon.health }}</div>
-                </div>
-                <div class="battle-spec">
-                  <div class="battle-spec-label">Damage</div>
-                  <div class="battle-spec-data">{{ weapon.damage }}</div>
-                </div>
-                <div class="battle-spec">
-                  <div class="battle-spec-label">Dodge</div>
-                  <div class="battle-spec-data">{{ weapon.dodge }}</div>
+                <div (click)="select($event, 'weapon', weapon.id.toString(), '2')" class="battle-select-button">
+                  SELECT
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <i class="arrow-right fas fa-arrow-circle-right"></i>
+        <i class="arrow-right fas fa-arrow-circle-right" (click)="arrow('weapon', 'right', '2')"></i>
       </div>
     </div>
   </div>

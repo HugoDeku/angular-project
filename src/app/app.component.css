@@ -30,6 +30,19 @@ nav a.active {
 *
  */
 
+.supra-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow-left, .arrow-right {
+  cursor: pointer;
+  color: white;
+  font-size: 4rem;
+  margin: 30px;
+}
+
 .heroes, .weapons {
   display: flex;
   flex-direction: column;
@@ -50,6 +63,7 @@ nav a.active {
   align-items: center;
   border: 2px solid black;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .shadow-container {
@@ -73,6 +87,7 @@ nav a.active {
   padding: 20px 0 20px 0;
   scroll-snap-type: x mandatory;
   width: 100%;
+  max-width: 1200px;
   min-height: 600px;
 }
 
@@ -157,6 +172,7 @@ nav a.active {
   align-items: center;
   border: 1px solid;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .weapon-card-update, button {
