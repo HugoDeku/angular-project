@@ -59,6 +59,8 @@ export class BattleComponent implements OnInit {
 
             this.updateListWeaponsPlayerOne();
             this.updateListWeaponsPlayerTwo();
+            console.log(this.heroWeaponPlayerTwo);
+            console.log(this.heroWeaponPlayerOne);
           }
         );
       }
@@ -73,7 +75,7 @@ export class BattleComponent implements OnInit {
       }
     }
     this.indexPlayerOne.weapon = 0;
-    this.heroWeaponPlayerOne.weapon = this.weaponsAllowedPlayerOne[this.indexPlayerOne.hero];
+    this.heroWeaponPlayerOne.weapon = this.weaponsAllowedPlayerOne[this.indexPlayerOne.weapon];
   }
 
   updateListWeaponsPlayerTwo(): void {
@@ -84,7 +86,7 @@ export class BattleComponent implements OnInit {
       }
     }
     this.indexPlayerTwo.weapon = 0;
-    this.heroWeaponPlayerTwo.weapon = this.weaponsAllowedPlayerTwo[this.indexPlayerTwo.hero];
+    this.heroWeaponPlayerTwo.weapon = this.weaponsAllowedPlayerTwo[this.indexPlayerTwo.weapon];
   }
 
   leftHeroPlayerOne(): void {

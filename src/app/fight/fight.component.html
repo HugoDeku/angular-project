@@ -1,1 +1,38 @@
-
+<div class="fight">
+    <div class="hero blue">
+        <div class="hero-stats">
+            <div class="hp-hero">
+                <p>{{ heroA.health }}</p>
+            </div>
+            <div class="img-hero">
+                <img src="assets/image/{{ heroA.image }}" alt="Hero a picture">
+            </div>
+        </div>
+        <div class="hero-messages">
+            <div *ngFor="let message of heroAMessage" [ngSwitch]="message.type">
+                <p *ngSwitchCase="logsEnum.Dodge" class="dodge-move">DODGE!</p>
+                <p *ngSwitchCase="logsEnum.DamageDealt" class="dealt-move">DEAL {{ message.value }}</p>
+                <p *ngSwitchCase="logsEnum.DamageTaken" class="taken-move">- {{ message.value }}</p>
+                <p *ngSwitchCase="logsEnum.Miss" class="miss-move">MISS!</p>
+            </div>
+        </div>
+    </div>
+    <div class="hero red">
+        <div class="hero-messages">
+            <div *ngFor="let message of heroBMessage" [ngSwitch]="message.type">
+                <p *ngSwitchCase="logsEnum.Dodge" class="dodge-move">DODGE!</p>
+                <p *ngSwitchCase="logsEnum.DamageDealt" class="dealt-move">DEAL {{ message.value }}</p>
+                <p *ngSwitchCase="logsEnum.DamageTaken" class="taken-move">- {{ message.value }}</p>
+                <p *ngSwitchCase="logsEnum.Miss" class="miss-move">MISS!</p>
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div class="hp-hero">
+                <p>{{ heroB.health }}</p>
+            </div>
+            <div class="img-hero">
+                <img src="assets/image/{{ heroB.image }}" alt="Hero b picture">
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,7 +1,7 @@
 <div class="battle" *ngIf="!isStarted">
     <div class="battle-header">
         <h1>New battle</h1>
-        <p id="fight-button">FIGHT</p>
+        <button id="fight-button" (click)="validate()">FIGHT</button>
     </div>
     <div class="battle-content">
         <div class="battle-player">
