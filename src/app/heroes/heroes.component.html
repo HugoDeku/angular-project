@@ -1,50 +1,51 @@
 <div class="heroes">
-  <div class="heroes-header">
-    <h1>All Heroes</h1>
-    <p routerLink="/heroes/create"><i class="fas fa-plus"></i></p>
-  </div>
-  <div class="shadow-container">
-    <div class="heroes-list">
-      <div *ngFor="let hero of heroes" class="hero-card hero-content-{{ hero.guild.id }}">
-        <div class="hero-content-header">
-          <div>{{ hero.name }}</div>
-          <div routerLink="/heroes/detail/{{hero.id}}" class="hero-card-update"><i class="fas fa-cog"></i></div>
-        </div>
-        <div class="hero-content-main-info">
-          <img src="assets/image/{{ hero.image }}" alt="Hero picture">
-          <div class="hero-content-info-container">
-            <p>{{ hero.description }}</p>
-            <label>Guild</label>
-            <div [ngSwitch]="hero.guild.id" class="hero-content-info-guild">
-              <i *ngSwitchCase="1" class="fab fa-windows"></i>
-              <i *ngSwitchCase="3" class="fab fa-linux"></i>
-              <i *ngSwitchCase="2" class="fab fa-apple"></i>
-            </div>
-
-            <div class="hero-stats">
-              <div class="hero-stats-element">
-                <label>Attack</label>
-                <div class="hero-content-info-attack">{{ hero.attack }}</div>
-              </div>
-              <div class="hero-stats-element">
-                <label>Health</label>
-                <div class="hero-content-info-health">{{ hero.health }}</div>
-              </div>
-              <div class="hero-stats-element">
-                <label>Damage</label>
-                <div class="hero-content-info-damage">{{ hero.damage }}</div>
-              </div>
-              <div class="hero-stats-element">
-                <label>Dodge</label>
-                <div class="hero-content-info-dodge">{{ hero.dodge }}</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="heroes-header">
+        <h1>All Heroes</h1>
+        <p routerLink="/heroes/create"><i class="fas fa-plus"></i></p>
     </div>
-  </div>
+    <div class="supra-container">
+        <i class="arrow-left fas fa-arrow-circle-left" (click)="arrow('left')"></i>
+        <div class="shadow-container">
+            <div class="heroes-list">
+                <div *ngFor="let hero of heroes" class="hero-card hero-content-{{ hero.guild.id }}">
+                    <div class="hero-content-header">
+                        <div>{{ hero.name }}</div>
+                        <div routerLink="/heroes/detail/{{hero.id}}" class="hero-card-update"><i class="fas fa-cog"></i></div>
+                    </div>
+                    <div class="hero-content-main-info">
+                        <img src="assets/image/{{ hero.image }}" alt="Hero picture">
+                        <div class="hero-content-info-container">
+                            <p>{{ hero.description }}</p>
+                            <label>Guild</label>
+                            <div [ngSwitch]="hero.guild.id" class="hero-content-info-guild">
+                                <i *ngSwitchCase="1" class="fab fa-windows"></i>
+                                <i *ngSwitchCase="3" class="fab fa-linux"></i>
+                                <i *ngSwitchCase="2" class="fab fa-apple"></i>
+                            </div>
+
+                            <div class="hero-stats">
+                                <div class="hero-stats-element">
+                                    <label>Attack</label>
+                                    <div class="hero-content-info-attack">{{ hero.attack }}</div>
+                                </div>
+                                <div class="hero-stats-element">
+                                    <label>Health</label>
+                                    <div class="hero-content-info-health">{{ hero.health }}</div>
+                                </div>
+                                <div class="hero-stats-element">
+                                    <label>Damage</label>
+                                    <div class="hero-content-info-damage">{{ hero.damage }}</div>
+                                </div>
+                                <div class="hero-stats-element">
+                                    <label>Dodge</label>
+                                    <div class="hero-content-info-dodge">{{ hero.dodge }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <i class="arrow-right fas fa-arrow-circle-right" (click)="arrow('right')"></i>
+    </div>
 </div>
-<footer>
-  <button (click)="resetHeroes()" class="hero-card-update">Reset heroes</button>
-</footer>

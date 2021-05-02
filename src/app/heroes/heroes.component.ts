@@ -27,4 +27,32 @@ export class HeroesComponent implements OnInit {
   resetHeroes(): void{
     this.heroService.reset();
   }
+
+  arrow(side): void {
+    const targetContainer = document.getElementsByClassName('heroes-list')[0],
+      maxScroll = targetContainer.scrollWidth - targetContainer.clientWidth,
+      actualScroll = targetContainer.scrollLeft,
+      cardWidth = 720;
+    var newScroll;
+
+    if (side === 'left') {
+      if (actualScroll - cardWidth <= 5) {
+        newScroll = 5;
+      } else {
+        newScroll = actualScroll - cardWidth;
+      }
+    } else {
+      if (actualScroll + cardWidth >= maxScroll) {
+        newScroll = maxScroll;
+      } else {
+        newScroll = actualScroll + cardWidth;
+      }
+    }
+
+    targetContainer.scrollTo({
+      top: 0,
+      left: newScroll,
+      behavior: 'smooth'
+    });
+  }
 }

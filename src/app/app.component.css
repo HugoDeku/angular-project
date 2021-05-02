@@ -1,25 +1,26 @@
 nav {
-  padding: 0 10% 0 10%;
-  border-bottom: 1px solid lightgray;
+    padding: 0 10% 0 10%;
+    border-bottom: 1px solid lightgray;
 }
 
 nav a {
-  padding: 1rem;
-  text-decoration: none;
-  display: inline-block;
-  background-color: #e8e8e8;
-  color: #3d3d3d;
-  border-radius: 40px;
-  margin: 5px 10px 10px 10px;
+    padding: 1rem;
+    text-decoration: none;
+    display: inline-block;
+    background-color: #e8e8e8;
+    color: #3d3d3d;
+    border-radius: 40px;
+    margin: 5px 10px 10px 10px;
 }
 
 nav a:hover {
-  background-color: lightgray;
+    background-color: lightgray;
 }
 
 nav a.active {
-  background-color: black;
+    background-color: black;
 }
+
 
 /*
 * GUILD COLOURS:
@@ -30,333 +31,467 @@ nav a.active {
 *
  */
 
-.heroes, .weapons {
-  display: flex;
-  flex-direction: column;
+.supra-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.heroes-header, .weapons-header, .battle-header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-  padding: 0 10% 0 10%;
+.arrow-left,
+.arrow-right {
+    cursor: pointer;
+    color: white;
+    font-size: 4rem;
+    margin: 30px;
 }
 
-.heroes-header p, .weapons-header p, .battle-header p {
-  height: 50px;
-  width: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid black;
-  border-radius: 50%;
+.heroes,
+.weapons {
+    display: flex;
+    flex-direction: column;
+}
+
+.heroes-header,
+.weapons-header,
+.battle-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 0 10% 0 10%;
+}
+
+.heroes-header p,
+.weapons-header p,
+.battle-header p {
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 .shadow-container {
-  position: relative;
+    position: relative;
 }
 
 .shadow-container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  box-shadow: inset 400px 0px 200px -370px #EAEAEA, inset -400px 0px 200px -370px #EAEAEA;
-  pointer-events: none;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: inset 400px 0px 200px -370px #EAEAEA, inset -400px 0px 200px -370px #EAEAEA;
+    pointer-events: none;
 }
 
 .heroes-list {
-  display: flex;
-  overflow: auto;
-  padding: 20px 0 20px 0;
-  scroll-snap-type: x mandatory;
-  width: 100%;
-  min-height: 600px;
+    display: flex;
+    overflow: auto;
+    padding: 20px 0 20px 0;
+    scroll-snap-type: x mandatory;
+    width: 100%;
+    max-width: 1200px;
+    min-height: 600px;
 }
 
 .weapons-list {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  overflow: auto;
-  padding: 20px 0 20px 0;
-  width: 100%;
-  max-height: 600px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    overflow: auto;
+    padding: 20px 0 20px 0;
+    width: 100%;
+    max-height: 600px;
 }
 
 .hero-card:first-child {
-  margin-left: 25%;
+    margin-left: 25%;
 }
 
 .hero-card:last-child {
-  margin-right: 25%;
+    margin-right: 25%;
 }
 
 .hero-card {
-  scroll-snap-align: center;
-  min-width: 600px;
-  height: 500px;
-  padding: 40px 60px 40px 60px;
-  margin: 0 20px 0 20px;
-  background-color: white;
-  border-radius: 30px;
-  box-shadow: 0px 0px 20px lightgray;
+    scroll-snap-align: center;
+    min-width: 600px;
+    height: 500px;
+    padding: 40px 60px 40px 60px;
+    margin: 0 20px 0 20px;
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: 0px 0px 20px lightgray;
 }
 
 .weapon-card {
-  width: 300px;
-  height: min-content;
-  padding: 20px 30px 20px 30px;
-  margin: 15px;
-  background-color: white;
-  border-radius: 20px;
-  box-shadow: 0px 0px 10px lightgray;
+    width: 300px;
+    height: min-content;
+    padding: 20px 30px 20px 30px;
+    margin: 15px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px lightgray;
 }
 
-.hero-content-header, .weapon-content-header {
-  display: flex;
-  justify-content: center;
+.hero-content-header,
+.weapon-content-header {
+    display: flex;
+    justify-content: center;
 }
 
 .hero-content-header div:first-child {
-  height: 40px;
-  width: min-content;
-  min-width: 200px;
-  padding: 0 20px 0 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid;
-  border-radius: 20px;
-  margin: 0 10px 0 0;
-  font-size: 1.5rem;
+    height: 40px;
+    width: min-content;
+    min-width: 200px;
+    padding: 0 20px 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid;
+    border-radius: 20px;
+    margin: 0 10px 0 0;
+    font-size: 1.5rem;
 }
 
 .weapon-content-header div:first-child {
-  height: 30px;
-  width: min-content;
-  min-width: 200px;
-  padding: 0 20px 0 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid;
-  border-radius: 20px;
-  margin: 0 10px 0 0;
-  font-size: 1.2rem;
+    height: 30px;
+    width: min-content;
+    min-width: 200px;
+    padding: 0 20px 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid;
+    border-radius: 20px;
+    margin: 0 10px 0 0;
+    font-size: 1.2rem;
 }
 
-.hero-card-update, button {
-  background-color: transparent;
-  height: 40px;
-  width: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid;
-  border-radius: 50%;
+.hero-card-update,
+button {
+    background-color: transparent;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
-.weapon-card-update, button {
-  background-color: transparent;
-  height: 30px;
-  width: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid;
-  border-radius: 50%;
+.weapon-card-update,
+button {
+    background-color: transparent;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid;
+    border-radius: 50%;
 }
 
-.hero-card-update:hover, .weapon-card-update:hover, button:hover {
-  background-color: #EAEAEA;
+.hero-card-update:hover,
+.weapon-card-update:hover,
+button:hover {
+    background-color: #EAEAEA;
 }
 
-.hero-content-main-info, .weapon-content-main-info {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+.hero-content-main-info,
+.weapon-content-main-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
 .hero-content-main-info img {
-  padding: 50px 50px 50px 0px;
-  margin: 30px 30px 30px 10px;
-  width: 70%;
-  border-right: 1px solid lightgray;
-  overflow: hidden;
+    padding: 50px 50px 50px 0px;
+    margin: 30px 30px 30px 10px;
+    width: 70%;
+    border-right: 1px solid lightgray;
+    overflow: hidden;
 }
 
 .weapon-content-img-container {
-  max-width: 50%;
-  border-right: 1px solid lightgray;
-  overflow: hidden;
+    max-width: 50%;
+    border-right: 1px solid lightgray;
+    overflow: hidden;
 }
 
 .weapon-content-img-container img {
-  width: 80%;
+    width: 80%;
 }
 
 .hero-content-info-container {
-  width: 100%;
-  height: 80%;
-  padding-left: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
+    width: 100%;
+    height: 80%;
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
 }
 
 .weapon-content-info-container {
-  width: 100%;
-  height: 80%;
-  padding-bottom: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
+    width: 100%;
+    height: 80%;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
 }
 
-.hero-stats, .weapon-stats {
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 140px;
-  justify-content: center;
+.hero-stats,
+.weapon-stats {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 140px;
+    justify-content: center;
 }
 
 .hero-stats-element {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 50px;
-  height: 50px;
-  padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    padding: 10px;
 }
 
 .weapon-stats-element {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 50px;
-  height: 40px;
-  padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 40px;
+    padding: 10px;
 }
 
-.hero-content-info-container p, .hero-content-info-container textarea, .weapon-content-info-container p, .weapon-content-info-container textarea {
-  font-size: 1.1rem;
+.hero-content-info-container p,
+.hero-content-info-container textarea,
+.weapon-content-info-container p,
+.weapon-content-info-container textarea {
+    font-size: 1.1rem;
 }
 
-.hero-content-info-container label, .weapon-content-info-container label  {
-  font-size: 0.7rem;
-  margin-top: 15px;
+.hero-content-info-container label,
+.weapon-content-info-container label {
+    font-size: 0.7rem;
+    margin-top: 15px;
 }
 
-.hero-content-info-attack, .hero-content-info-damage, .hero-content-info-dodge, .hero-content-info-health, .hero-content-info-guild {
-  font-size: 1.5rem;
-}
-
-/* Windows colour */
-.hero-content-1 .hero-content-header, .hero-content-1 .hero-content-header div, .hero-content-1 .hero-content-info-attack, .hero-content-1 .hero-content-info-damage, .hero-content-1 .hero-content-info-dodge, .hero-content-1 .hero-content-info-health, .hero-content-1 .hero-content-info-guild, .hero-content-1 button {
-  color: #0097F5;
-}
-
-/* macOS colour */
-.hero-content-2 .hero-content-header, .hero-content-2 .hero-content-header div, .hero-content-2 .hero-content-info-attack, .hero-content-2 .hero-content-info-damage, .hero-content-2 .hero-content-info-dodge, .hero-content-2 .hero-content-info-health, .hero-content-2 .hero-content-info-guild, .hero-content-2 button {
-  color: #CE0028;
-}
-
-/* Linux colour */
-.hero-content-3 .hero-content-header, .hero-content-3 .hero-content-header div, .hero-content-3 .hero-content-info-attack, .hero-content-3 .hero-content-info-damage, .hero-content-3 .hero-content-info-dodge, .hero-content-3 .hero-content-info-health, .hero-content-3 .hero-content-info-guild, .hero-content-3 button {
-  color: #FF9D00;
-}
-
-.weapon-content-info-attack, .weapon-content-info-damage, .weapon-content-info-dodge, .weapon-content-info-health, .weapon-content-info-guild {
-  font-size: 1.5rem;
-}
-
-/* Windows colour */
-.weapon-content-1 .weapon-content-header, .weapon-content-1 .weapon-content-header div, .weapon-content-1 .weapon-content-info-attack, .weapon-content-1 .weapon-content-info-damage, .weapon-content-1 .weapon-content-info-dodge, .weapon-content-1 .weapon-content-info-health, .weapon-content-1 .weapon-content-info-guild, .weapon-content-1 button {
-  color: #0097F5;
-}
-
-/* macOS colour */
-.weapon-content-2 .weapon-content-header, .weapon-content-2 .weapon-content-header div, .weapon-content-2 .weapon-content-info-attack, .weapon-content-2 .weapon-content-info-damage, .weapon-content-2 .weapon-content-info-dodge, .weapon-content-2 .weapon-content-info-health, .weapon-content-2 .weapon-content-info-guild, .weapon-content-2 button {
-  color: #CE0028;
-}
-
-/* Linux colour */
-.weapon-content-3 .weapon-content-header, .weapon-content-3 .weapon-content-header div, .weapon-content-3 .weapon-content-info-attack, .weapon-content-3 .weapon-content-info-damage, .weapon-content-3 .weapon-content-info-dodge, .weapon-content-3 .weapon-content-info-health, .weapon-content-3 .weapon-content-info-guild, .weapon-content-3 button {
-  color: #FF9D00;
+.hero-content-info-attack,
+.hero-content-info-damage,
+.hero-content-info-dodge,
+.hero-content-info-health,
+.hero-content-info-guild {
+    font-size: 1.5rem;
 }
 
 
 /* Windows colour */
-.hero-content-1 #hero-attack:focus, .hero-content-1 #hero-damage:focus, .hero-content-1 #hero-dodge:focus, .hero-content-1 #hero-health:focus, .hero-content-1 #hero-name:focus,
-.hero-content-1 #hero-attack:hover, .hero-content-1 #hero-damage:hover, .hero-content-1 #hero-dodge:hover, .hero-content-1 #hero-health:hover, .hero-content-1 #hero-name:hover {
-  outline: none !important;
-  border-color: #0097F5;
+
+.hero-content-1 .hero-content-header,
+.hero-content-1 .hero-content-header div,
+.hero-content-1 .hero-content-info-attack,
+.hero-content-1 .hero-content-info-damage,
+.hero-content-1 .hero-content-info-dodge,
+.hero-content-1 .hero-content-info-health,
+.hero-content-1 .hero-content-info-guild,
+.hero-content-1 button {
+    color: #0097F5;
 }
+
 
 /* macOS colour */
-.hero-content-2 #hero-attack:focus, .hero-content-2 #hero-damage:focus, .hero-content-2 #hero-dodge:focus, .hero-content-2 #hero-health:focus,
-.hero-content-2 #hero-attack:hover, .hero-content-2 #hero-damage:hover, .hero-content-2 #hero-dodge:hover, .hero-content-2 #hero-health:hover {
-  outline: none !important;
-  border-color: #CE0028;
+
+.hero-content-2 .hero-content-header,
+.hero-content-2 .hero-content-header div,
+.hero-content-2 .hero-content-info-attack,
+.hero-content-2 .hero-content-info-damage,
+.hero-content-2 .hero-content-info-dodge,
+.hero-content-2 .hero-content-info-health,
+.hero-content-2 .hero-content-info-guild,
+.hero-content-2 button {
+    color: #CE0028;
 }
 
+
 /* Linux colour */
-.hero-content-3 #hero-attack:focus, .hero-content-3 #hero-damage:focus, .hero-content-3 #hero-dodge:focus, .hero-content-3 #hero-health:focus,
-.hero-content-3 #hero-attack:hover, .hero-content-3 #hero-damage:hover, .hero-content-3 #hero-dodge:hover, .hero-content-3 #hero-health:hover {
-  outline: none !important;
-  border-color: #FF9D00;
+
+.hero-content-3 .hero-content-header,
+.hero-content-3 .hero-content-header div,
+.hero-content-3 .hero-content-info-attack,
+.hero-content-3 .hero-content-info-damage,
+.hero-content-3 .hero-content-info-dodge,
+.hero-content-3 .hero-content-info-health,
+.hero-content-3 .hero-content-info-guild,
+.hero-content-3 button {
+    color: #FF9D00;
+}
+
+.weapon-content-info-attack,
+.weapon-content-info-damage,
+.weapon-content-info-dodge,
+.weapon-content-info-health,
+.weapon-content-info-guild {
+    font-size: 1.5rem;
 }
 
 
 /* Windows colour */
-.weapon-content-1 #weapon-attack:focus, .weapon-content-1 #weapon-damage:focus, .weapon-content-1 #weapon-dodge:focus, .weapon-content-1 #weapon-health:focus, .weapon-content-1 #weapon-name:focus,
-.weapon-content-1 #weapon-attack:hover, .weapon-content-1 #weapon-damage:hover, .weapon-content-1 #weapon-dodge:hover, .weapon-content-1 #weapon-health:hover, .weapon-content-1 #weapon-name:hover {
-  outline: none !important;
-  border-color: #0097F5;
+
+.weapon-content-1 .weapon-content-header,
+.weapon-content-1 .weapon-content-header div,
+.weapon-content-1 .weapon-content-info-attack,
+.weapon-content-1 .weapon-content-info-damage,
+.weapon-content-1 .weapon-content-info-dodge,
+.weapon-content-1 .weapon-content-info-health,
+.weapon-content-1 .weapon-content-info-guild,
+.weapon-content-1 button {
+    color: #0097F5;
 }
+
 
 /* macOS colour */
-.weapon-content-2 #weapon-attack:focus, .weapon-content-2 #weapon-damage:focus, .weapon-content-2 #weapon-dodge:focus, .weapon-content-2 #weapon-health:focus,
-.weapon-content-2 #weapon-attack:hover, .weapon-content-2 #weapon-damage:hover, .weapon-content-2 #weapon-dodge:hover, .weapon-content-2 #weapon-health:hover {
-  outline: none !important;
-  border-color: #CE0028;
+
+.weapon-content-2 .weapon-content-header,
+.weapon-content-2 .weapon-content-header div,
+.weapon-content-2 .weapon-content-info-attack,
+.weapon-content-2 .weapon-content-info-damage,
+.weapon-content-2 .weapon-content-info-dodge,
+.weapon-content-2 .weapon-content-info-health,
+.weapon-content-2 .weapon-content-info-guild,
+.weapon-content-2 button {
+    color: #CE0028;
 }
 
+
 /* Linux colour */
-.weapon-content-3 #weapon-attack:focus, .weapon-content-3 #weapon-damage:focus, .weapon-content-3 #weapon-dodge:focus, .weapon-content-3 #weapon-health:focus,
-.weapon-content-3 #weapon-attack:hover, .weapon-content-3 #weapon-damage:hover, .weapon-content-3 #weapon-dodge:hover, .weapon-content-3 #weapon-health:hover {
-  outline: none !important;
-  border-color: #FF9D00;
+
+.weapon-content-3 .weapon-content-header,
+.weapon-content-3 .weapon-content-header div,
+.weapon-content-3 .weapon-content-info-attack,
+.weapon-content-3 .weapon-content-info-damage,
+.weapon-content-3 .weapon-content-info-dodge,
+.weapon-content-3 .weapon-content-info-health,
+.weapon-content-3 .weapon-content-info-guild,
+.weapon-content-3 button {
+    color: #FF9D00;
+}
+
+
+/* Windows colour */
+
+.hero-content-1 #hero-attack:focus,
+.hero-content-1 #hero-damage:focus,
+.hero-content-1 #hero-dodge:focus,
+.hero-content-1 #hero-health:focus,
+.hero-content-1 #hero-name:focus,
+.hero-content-1 #hero-attack:hover,
+.hero-content-1 #hero-damage:hover,
+.hero-content-1 #hero-dodge:hover,
+.hero-content-1 #hero-health:hover,
+.hero-content-1 #hero-name:hover {
+    outline: none !important;
+    border-color: #0097F5;
+}
+
+
+/* macOS colour */
+
+.hero-content-2 #hero-attack:focus,
+.hero-content-2 #hero-damage:focus,
+.hero-content-2 #hero-dodge:focus,
+.hero-content-2 #hero-health:focus,
+.hero-content-2 #hero-attack:hover,
+.hero-content-2 #hero-damage:hover,
+.hero-content-2 #hero-dodge:hover,
+.hero-content-2 #hero-health:hover {
+    outline: none !important;
+    border-color: #CE0028;
+}
+
+
+/* Linux colour */
+
+.hero-content-3 #hero-attack:focus,
+.hero-content-3 #hero-damage:focus,
+.hero-content-3 #hero-dodge:focus,
+.hero-content-3 #hero-health:focus,
+.hero-content-3 #hero-attack:hover,
+.hero-content-3 #hero-damage:hover,
+.hero-content-3 #hero-dodge:hover,
+.hero-content-3 #hero-health:hover {
+    outline: none !important;
+    border-color: #FF9D00;
+}
+
+
+/* Windows colour */
+
+.weapon-content-1 #weapon-attack:focus,
+.weapon-content-1 #weapon-damage:focus,
+.weapon-content-1 #weapon-dodge:focus,
+.weapon-content-1 #weapon-health:focus,
+.weapon-content-1 #weapon-name:focus,
+.weapon-content-1 #weapon-attack:hover,
+.weapon-content-1 #weapon-damage:hover,
+.weapon-content-1 #weapon-dodge:hover,
+.weapon-content-1 #weapon-health:hover,
+.weapon-content-1 #weapon-name:hover {
+    outline: none !important;
+    border-color: #0097F5;
+}
+
+
+/* macOS colour */
+
+.weapon-content-2 #weapon-attack:focus,
+.weapon-content-2 #weapon-damage:focus,
+.weapon-content-2 #weapon-dodge:focus,
+.weapon-content-2 #weapon-health:focus,
+.weapon-content-2 #weapon-attack:hover,
+.weapon-content-2 #weapon-damage:hover,
+.weapon-content-2 #weapon-dodge:hover,
+.weapon-content-2 #weapon-health:hover {
+    outline: none !important;
+    border-color: #CE0028;
+}
+
+
+/* Linux colour */
+
+.weapon-content-3 #weapon-attack:focus,
+.weapon-content-3 #weapon-damage:focus,
+.weapon-content-3 #weapon-dodge:focus,
+.weapon-content-3 #weapon-health:focus,
+.weapon-content-3 #weapon-attack:hover,
+.weapon-content-3 #weapon-damage:hover,
+.weapon-content-3 #weapon-dodge:hover,
+.weapon-content-3 #weapon-health:hover {
+    outline: none !important;
+    border-color: #FF9D00;
 }
 
 .list-title {
-  color: darkgrey;
-  font-size: 2rem;
-  font-variant: all-small-caps;
-  font-weight: bold;
-  line-height: normal;
-  margin: 0;
-  text-align: center;
+    color: darkgrey;
+    font-size: 2rem;
+    font-variant: all-small-caps;
+    font-weight: bold;
+    line-height: normal;
+    margin: 0;
+    text-align: center;
 }
-
-
-
-
-
-
-
-
-
-
-
