@@ -1,160 +1,171 @@
 .battle {
-    width: 100%;
-    height: min-content;
+  width: 100%;
+  height: min-content;
 }
 
 .battle-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #fight-button {
-    cursor: pointer;
-    min-width: 200px;
-    background-color: #a4e393;
-    border-color: #127500;
-    color: #127500;
-    border-radius: 35px;
-    font-size: 1.5rem;
-    font-weight: bold;
+  cursor: pointer;
+  min-width: 200px;
+  background-color: #a4e393;
+  border-color: #127500;
+  color: #127500;
+  border-radius: 35px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 30px;
 }
 
 #fight-button:hover {
-    border-color: transparent;
-    background-color: darkred;
-    color: white;
+  border-color: transparent;
+  background-color: darkred;
+  color: white;
 }
 
 .battle-player {
-    display: flex;
-    flex-direction: column;
-    border-radius: 30px;
-    padding: 20px;
-    margin: 10px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
+  padding: 20px;
+  margin: 10px;
 }
 
 .battle-player:first-of-type {
-    background-color: #d5e4ec;
+  background-color: #d5e4ec;
 }
 
 .battle-player:last-of-type {
-    background-color: #ecd5d5;
+  background-color: #ecd5d5;
 }
 
 .battle-item-selection {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .battle-item-selection i {
-    margin: 10px;
-    color: white;
-    font-size: 1.5rem;
+  margin: 10px;
+  color: white;
+  font-size: 1.5rem;
 }
 
 .battle-item-window {
-    padding: 20px;
-    display: flex;
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
-    max-width: 450px;
+  padding: 20px;
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  max-width: 450px;
 }
 
 .battle-item-card {
-    scroll-snap-align: center;
-    background-color: white;
-    border-radius: 15px;
-    min-width: 400px;
-    height: 200px;
-    box-shadow: 0px 0px 20px lightgrey;
-    margin-right: 30px;
+  scroll-snap-align: center;
+  background-color: white;
+  border-radius: 15px;
+  min-width: 400px;
+  height: 200px;
+  box-shadow: 0px 0px 20px lightgrey;
+  margin-right: 30px;
+  border: 3px solid transparent;
 }
 
 .selected-item {
-    border: 3px solid #127500;
+  border: 3px solid #127500;
 }
 
 .battle-item-card:first-of-type {
-    margin-left: 30px;
+  margin-left: 30px;
 }
 
 .battle-item-card:last-of-type {
-    margin-right: 30px;
+  margin-right: 30px;
 }
 
 .battle-item-name {
-    margin: 10px;
-    text-align: center;
+  margin: 10px;
+  text-align: center;
 }
 
 .battle-info {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .battle-item-card img {
-    height: 150px;
-    margin-right: 10px;
-    border-right: 1px solid lightgray;
-    padding-right: 20px;
+  height: 150px;
+  margin-right: 10px;
+  border-right: 1px solid lightgray;
+  padding-right: 20px;
 }
 
 .battle-item-specs {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 100px;
-    height: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100px;
+  height: 100px;
 }
 
 .battle-spec {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .battle-spec-label {
-    color: darkgrey;
-    font-size: 0.7rem;
-    width: 50px;
-    text-align: center;
+  color: darkgrey;
+  font-size: 0.7rem;
+  width: 50px;
+  text-align: center;
 }
 
 .battle-spec-data {
-    font-size: 1.5rem;
-    width: 50px;
-    text-align: center;
+  font-size: 1.5rem;
+  width: 50px;
+  text-align: center;
 }
 
 .battle-select-button {
-    cursor: pointer;
-    font-size: 1rem;
-    border: 1px solid #127500;
-    text-align: center;
-    border-radius: 15px;
-    color: #127500;
-    margin-top: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  border: 1px solid #127500;
+  text-align: center;
+  border-radius: 15px;
+  color: #127500;
+  margin-top: 10px;
 }
 
 .battle-select-button:hover {
-    background-color: #a4e393;
+  background-color: #a4e393;
 }
 
 .hero-content-1 .battle-spec-data,
 .hero-content-1 .battle-item-name,
 .hero-content-1 i {
-    color: #0097F5;
+  color: #0097F5;
 }
 
 .hero-content-2 .battle-spec-data,
 .hero-content-2 .battle-item-name,
 .hero-content-2 i {
-    color: #CE0028;
+  color: #CE0028;
 }
 
 .hero-content-3 .battle-spec-data,
 .hero-content-3 .battle-item-name,
 .hero-content-3 i {
-    color: #FF9D00;
+  color: #FF9D00;
+}
+
+.error {
+  background-color: darkred;
+  color: white;
+}
+
+.hidden {
+  display: none;
 }

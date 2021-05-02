@@ -30,7 +30,7 @@ export class WeaponService {
             map(liste => {
 
               // log
-              console.log('getWeapons()');
+              // console.log('getWeapons()');
 
               // Traitement de la liste
               return liste.map(item => {
@@ -46,7 +46,7 @@ export class WeaponService {
                 weapon.id = id;
 
                 // log
-                console.log('   weapon ' + id);
+                // console.log('   weapon ' + id);
 
                 // Use spread operator to add the id to the document data
                 return weapon;
@@ -100,7 +100,7 @@ export class WeaponService {
               weapon.id = id;
 
               // log
-              console.log('getWeapon(' + id + ')');
+              // console.log('getWeapon(' + id + ')');
 
               // Use spread operator to add the id to the document data
               return weapon;

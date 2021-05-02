@@ -1,54 +1,151 @@
 .fight {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
-.img-hero img {
-    height: 200px;
-    width: 100px;
+.hero-img {
+  height: 200px;
+}
+
+.list-title {
+  color: darkgrey;
+  font-size: 2rem;
+  font-variant: all-small-caps;
+  font-weight: bold;
+  line-height: normal;
+  margin: 0;
+  text-align: center;
 }
 
 .hero {
-    display: flex;
-    flex-direction: row;
+  border-radius: 30px;
+  padding: 20px;
+  margin: 10px;
+  min-width: 450px;
+  height: 450px;
+  margin: 25px;
+}
+
+.hero-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80%;
 }
 
 .hero-stats {
-    display: flex;
-    flex-direction: column;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .hero-messages {
-    display: flex;
-    flex-direction: column-reverse;
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column-reverse;
+  overflow-y: scroll;
+  min-width: 100px;
+  height: 80%;
+  margin: 20px;
+  margin-top: 50px;
+  padding: 20px;
+  border-radius: 30px;
+}
+
+.hero-messages::-webkit-scrollbar {
+  display: none;
 }
 
 .red {
-    background-color: rgba(255, 42, 0, 0.6);
-    border: solid 3px rgb(255, 42, 0);
-    border-radius: 4px;
-    padding: 5px;
+  background-color: #ecd5d5;
+  border: solid 3px rgb(162, 17, 17);
 }
 
 .blue {
-    background-color: rgba(0, 68, 255, 0.6);
-    border: solid 3px rgb(0, 68, 255);
-    border-radius: 4px;
-    padding: 5px;
+  background-color: #d5e4ec;
+  border: solid 3px rgb(0, 160, 248);
 }
 
 .miss-move {
-    color: lightslategray;
+  color: lightslategray;
 }
 
 .dealt-move {
-    color: orange;
+  color: orange;
 }
 
 .taken-move {
-    color: red;
+  color: red;
 }
 
 .dodge-move {
-    color: green;
+  color: green;
 }
+
+.hp-hero {
+  font-size: 2rem;
+  line-height: normal;
+  font-weight: bold;
+  background-color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 30px;
+  min-width: 150px;
+}
+
+.hp-hero p {
+  margin: 0;
+}
+
+.weapon-img {
+  height: 100px;
+  position: absolute;
+  top: 205px;
+  left: 140px;
+}
+
+#win-screen {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#win-screen img {
+  height: 200px;
+  margin: 50px;
+}
+
+#win-screen div {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 30px;
+  background-color: #127500;
+}
+
+#win-screen div:hover {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 30px;
+  background-color: darkred;
+  cursor: pointer;
+}
+
+
+

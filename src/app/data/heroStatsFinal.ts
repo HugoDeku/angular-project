@@ -1,4 +1,4 @@
-export class HeroStatsFinal{
+export class HeroStatsFinal {
   id: number;
   name: string;
   health: number;
@@ -7,4 +7,5 @@ export class HeroStatsFinal{
   dodge: number;
   damage: number;
   victories: number;
+  weaponImage: string;
 }

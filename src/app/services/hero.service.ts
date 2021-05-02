@@ -32,7 +32,7 @@ export class HeroService {
         map(liste => {
 
           // log
-          console.log('getHeroes()');
+          // console.log('getHeroes()');
 
           // Traitement de la liste
           return liste.map(item => {
@@ -48,7 +48,7 @@ export class HeroService {
             hero.id = id;
 
             // log
-            console.log('   hero ' + id);
+            // console.log('   hero ' + id);
 
             // Use spread operator to add the id to the document data
             return hero;
@@ -74,7 +74,7 @@ export class HeroService {
           hero.id = id;
 
           // log
-          console.log('getHero(' + id + ')');
+          // console.log('getHero(' + id + ')');
 
           // Use spread operator to add the id to the document data
           return hero;

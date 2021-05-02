@@ -24,7 +24,7 @@ export class GuildService {
         map(liste => {
 
           // log
-          console.log('getGuilds()');
+          // console.log('getGuilds()');
 
           // Traitement de la liste
           return liste.map(item => {
@@ -40,7 +40,7 @@ export class GuildService {
             guild.id = id;
 
             // log
-            console.log('   guild ' + id);
+            // console.log('   guild ' + id);
 
             // Use spread operator to add the id to the document data
             return guild;

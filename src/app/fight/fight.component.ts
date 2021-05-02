@@ -5,8 +5,9 @@ import {HeroService} from '../services/hero.service';
 import {Location} from '@angular/common';
 import {WeaponService} from '../services/weapon.service';
 import {HeroStatsFinal} from '../data/heroStatsFinal';
-import { LogsEnum, LogsFight } from '../data/logs_fight';
-import { ThrowStmt } from '@angular/compiler';
+import {LogsEnum, LogsFight} from '../data/logs_fight';
+import {ThrowStmt} from '@angular/compiler';
+import {scheduleObservable} from "rxjs/internal/scheduled/scheduleObservable";
 
 @Component({
   selector: 'app-fight',
@@ -20,6 +21,7 @@ export class FightComponent implements OnInit {
 
   heroA: HeroStatsFinal;
   heroB: HeroStatsFinal;
+  heroWinner: HeroStatsFinal;
 
   heroAMessage: LogsFight[] = [];
   heroBMessage: LogsFight[] = [];
@@ -31,11 +33,13 @@ export class FightComponent implements OnInit {
   logsEnum = LogsEnum;
 
   DODGE_RATE = 0.0225;
+
   constructor(private route: ActivatedRoute,
               private heroService: HeroService,
               private location: Location,
               private router: Router,
-              private weaponService: WeaponService) { }
+              private weaponService: WeaponService) {
+  }
 
   ngOnInit(): void {
     this.generateHeroStatsFinals();
@@ -43,23 +47,28 @@ export class FightComponent implements OnInit {
     this.fight();
   }
 
-  generateHeroStatsFinals(): void{
+  generateHeroStatsFinals(): void {
     this.heroA = new HeroStatsFinal();
     this.heroB = new HeroStatsFinal();
 
     this.heroA.id = this.heroWeapon1.hero.id;
+    this.heroA.name = this.heroWeapon1.hero.name;
     this.heroA.attack = this.heroWeapon1.hero.attack + this.heroWeapon1.weapon.attack;
     this.heroA.health = (this.heroWeapon1.hero.health + this.heroWeapon1.weapon.health) * 5;
     this.heroA.dodge = this.DODGE_RATE * (this.heroWeapon1.hero.dodge + this.heroWeapon1.weapon.dodge);
-    this.heroA.damage = (this.heroWeapon1.hero.damage + this.heroWeapon1.weapon.damage)/2;
+    this.heroA.damage = (this.heroWeapon1.hero.damage + this.heroWeapon1.weapon.damage) / 2;
     this.heroA.image = this.heroWeapon1.hero.image;
+    this.heroA.weaponImage = this.heroWeapon1.weapon.image;
 
     this.heroB.id = this.heroWeapon2.hero.id;
+    this.heroB.name = this.heroWeapon2.hero.name;
     this.heroB.attack = this.heroWeapon2.hero.attack + this.heroWeapon2.weapon.attack;
     this.heroB.health = (this.heroWeapon2.hero.health + this.heroWeapon2.weapon.health) * 5;
     this.heroB.dodge = this.DODGE_RATE * (this.heroWeapon2.hero.dodge + this.heroWeapon2.weapon.dodge);
-    this.heroB.damage = (this.heroWeapon2.hero.damage + this.heroWeapon2.weapon.damage)/2;
+    this.heroB.damage = (this.heroWeapon2.hero.damage + this.heroWeapon2.weapon.damage) / 2;
     this.heroB.image = this.heroWeapon2.hero.image;
+    this.heroB.weaponImage = this.heroWeapon2.weapon.image;
+
 
     this.mapIdHeroMessage = new Map<number, LogsFight[]>();
 
@@ -67,23 +76,23 @@ export class FightComponent implements OnInit {
     this.mapIdHeroMessage.set(this.heroB.id, this.heroBMessage);
   }
 
-  generateTour(): void{
+  generateTour(): void {
     this.indiceTour = 0;
-    if(this.heroA.attack > this.heroB.attack){
+    if (this.heroA.attack > this.heroB.attack) {
       this.tourHeroes.push(this.heroA);
       this.tourHeroes.push(this.heroB);
-    }else if(this.heroA.attack < this.heroB.attack){
+    } else if (this.heroA.attack < this.heroB.attack) {
       this.tourHeroes.push(this.heroB);
       this.tourHeroes.push(this.heroA);
-    }else{
-      while(this.tourHeroes.length == 0){
+    } else {
+      while (this.tourHeroes.length == 0) {
         let heroARandom = Math.random();
         let heroBRandom = Math.random();
-  
-        if(heroARandom > heroBRandom){
+
+        if (heroARandom > heroBRandom) {
           this.tourHeroes.push(this.heroA);
           this.tourHeroes.push(this.heroB);
-        }else if(heroARandom < heroBRandom){
+        } else if (heroARandom < heroBRandom) {
           this.tourHeroes.push(this.heroB);
           this.tourHeroes.push(this.heroA);
         }
@@ -92,35 +101,35 @@ export class FightComponent implements OnInit {
   }
 
   delay(ms: number): Promise<void> {
-    return new Promise( resolve => setTimeout(resolve, ms) );
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 
   async fight() {
-    console.log("Fight");
+
+    // console.log("Fight");
     var heroAttaquant = this.tourHeroes[this.indiceTour];
     var heroDefenseur = this.tourHeroes[this.indiceTour == 0 ? 1 : 0];
 
     //Test si esquive
     var random = Math.random();
 
-    if(random > heroDefenseur.dodge){
+    this.scrollTop();
+    if (random > heroDefenseur.dodge) {
       //Attaque réussie
       heroDefenseur.health = heroDefenseur.health - heroAttaquant.damage;
       //Animation damage
       this.pushMessage(heroAttaquant.id, this.createMessage(LogsEnum.DamageDealt, heroAttaquant.damage));
       this.pushMessage(heroDefenseur.id, this.createMessage(LogsEnum.DamageTaken, heroAttaquant.damage));
-    }else{
+    } else {
       //Esquive
       //Animation esquive
       this.pushMessage(heroDefenseur.id, this.createMessage(LogsEnum.Dodge));
       this.pushMessage(heroAttaquant.id, this.createMessage(LogsEnum.Miss));
     }
 
-    if(heroDefenseur.health <= 0){
-      //Affichage fin
-      console.log("Fin");
-    }
-    else{
+    if (heroDefenseur.health <= 0) {
+      this.heroWinner = heroAttaquant;
+    } else {
       //Relance tour
       this.indiceTour = this.indiceTour == 0 ? 1 : 0;
       await this.delay(1000);
@@ -128,17 +137,31 @@ export class FightComponent implements OnInit {
     }
   }
 
-  pushMessage(id: number, logsFight: LogsFight): void{
+  pushMessage(id: number, logsFight: LogsFight): void {
     this.mapIdHeroMessage.get(id).push(logsFight);
-    //console.log(this.mapIdHeroMessage.get(id));
+    // console.log(this.mapIdHeroMessage.get(id));
   }
 
-  createMessage(type: LogsEnum, value?: number): LogsFight{
+  createMessage(type: LogsEnum, value?: number): LogsFight {
     var logsFight = new LogsFight();
     logsFight.type = type;
-    if(value !== undefined)
+    if (value !== undefined)
       logsFight.value = value;
     return logsFight;
   }
 
+  scrollTop(): void {
+    setTimeout(() => {
+      const scrollables = document.getElementsByClassName('hero-messages');
+      var i = scrollables.length;
+
+      while (i--) {
+        scrollables[i].scrollTop = 0 - scrollables[i].scrollHeight;
+      }
+    }, 1);
+  }
+
+  refresh(): void {
+    window.location.reload();
+  }
 }

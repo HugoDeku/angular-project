@@ -7,7 +7,7 @@ import {Hero} from '../data/hero';
 import {Weapon} from '../data/weapon';
 import {HeroWeapon} from '../data/hero_weapons';
 import {IndexPlayer} from '../data/indexPlayer';
-import {max} from "rxjs/operators";
+import {max} from 'rxjs/operators';
 
 @Component({
   selector: 'app-battle',
@@ -59,8 +59,6 @@ export class BattleComponent implements OnInit {
 
             this.updateListWeaponsPlayerOne();
             this.updateListWeaponsPlayerTwo();
-            console.log(this.heroWeaponPlayerTwo);
-            console.log(this.heroWeaponPlayerOne);
           }
         );
       }
@@ -142,7 +140,15 @@ export class BattleComponent implements OnInit {
   }
 
   validate(): void {
-    this.isStarted = true;
+    const selectedItems = document.getElementsByClassName('selected-item');
+
+    if (selectedItems.length < 4) {
+      document.getElementById('error').classList.remove('hidden');
+    } else {
+      const errorMessage = document.getElementById('error');
+      if (!errorMessage.classList.contains('error')) { errorMessage.classList.add('hidden');}
+      this.isStarted = true;
+    }
   }
 
   arrow(item, side, player): void {
@@ -174,11 +180,29 @@ export class BattleComponent implements OnInit {
   }
 
   select(e, item, id, player): void {
-    console.log(item, id, player);
+    id = id - 1; // quicker than looping or even looking into db
+
+    if (player === '1') {
+      if (item === 'hero') {
+        this.heroWeaponPlayerOne.hero = this.listHeroes[id];
+      } else {
+        this.heroWeaponPlayerOne.weapon = this.listWeapons[id];
+      }
+    } else {
+      if (item === 'hero') {
+        this.heroWeaponPlayerTwo.hero = this.listHeroes[id];
+      } else {
+        this.heroWeaponPlayerTwo.weapon = this.listWeapons[id];
+      }
+    }
+
     const scrollable = e.target.closest('.battle-item-window');
     const card = e.target.closest('.battle-item-card');
     const previouslySelected = scrollable.getElementsByClassName('selected-item')[0];
-    if (previouslySelected) { previouslySelected.classList.remove('selected-item'); }
+
+    if (previouslySelected) {
+      previouslySelected.classList.remove('selected-item');
+    }
 
     card.classList.add('selected-item');
   }

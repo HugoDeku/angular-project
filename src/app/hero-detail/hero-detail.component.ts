@@ -102,7 +102,7 @@ export class HeroDetailComponent implements OnInit {
       .subscribe(guilds => {
         this.guilds = guilds;
         if (this.hero.guild === undefined){
-          console.log(this.guilds.length);
+          // console.log(this.guilds.length);
           this.hero.guild = Object.assign({}, this.guilds[Math.round(Math.random() * (this.guilds.length - 1))]);
         }
       });
