@@ -49,14 +49,14 @@ export class FightComponent implements OnInit {
 
     this.heroA.id = this.heroWeapon1.hero.id;
     this.heroA.attack = this.heroWeapon1.hero.attack + this.heroWeapon1.weapon.attack;
-    this.heroA.health = this.heroWeapon1.hero.health + this.heroWeapon1.weapon.health;
+    this.heroA.health = (this.heroWeapon1.hero.health + this.heroWeapon1.weapon.health) * 5;
     this.heroA.dodge = this.DODGE_RATE * (this.heroWeapon1.hero.dodge + this.heroWeapon1.weapon.dodge);
     this.heroA.damage = (this.heroWeapon1.hero.damage + this.heroWeapon1.weapon.damage)/2;
     this.heroA.image = this.heroWeapon1.hero.image;
 
     this.heroB.id = this.heroWeapon2.hero.id;
     this.heroB.attack = this.heroWeapon2.hero.attack + this.heroWeapon2.weapon.attack;
-    this.heroB.health = this.heroWeapon2.hero.health + this.heroWeapon2.weapon.health;
+    this.heroB.health = (this.heroWeapon2.hero.health + this.heroWeapon2.weapon.health) * 5;
     this.heroB.dodge = this.DODGE_RATE * (this.heroWeapon2.hero.dodge + this.heroWeapon2.weapon.dodge);
     this.heroB.damage = (this.heroWeapon2.hero.damage + this.heroWeapon2.weapon.damage)/2;
     this.heroB.image = this.heroWeapon2.hero.image;
