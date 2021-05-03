@@ -6,8 +6,6 @@ import {Location} from '@angular/common';
 import {WeaponService} from '../services/weapon.service';
 import {HeroStatsFinal} from '../data/heroStatsFinal';
 import {LogsEnum, LogsFight} from '../data/logs_fight';
-import {ThrowStmt} from '@angular/compiler';
-import {scheduleObservable} from "rxjs/internal/scheduled/scheduleObservable";
 
 @Component({
   selector: 'app-fight',
@@ -129,6 +127,7 @@ export class FightComponent implements OnInit {
 
     if (heroDefenseur.health <= 0) {
       this.heroWinner = heroAttaquant;
+      this.addVictory(this.heroWinner)
     } else {
       //Relance tour
       this.indiceTour = this.indiceTour == 0 ? 1 : 0;
@@ -163,5 +162,14 @@ export class FightComponent implements OnInit {
 
   refresh(): void {
     window.location.reload();
+  }
+
+  addVictory(heroStats: HeroStatsFinal): void {
+    const winningHero = heroStats.id === this.heroWeapon1.hero.id ? this.heroWeapon1.hero : this.heroWeapon2.hero;
+
+    winningHero.victories++;
+
+    // update hero in db
+    this.heroService.updateHero(winningHero);
   }
 }
