@@ -76,6 +76,7 @@ export class HeroDetailComponent implements OnInit {
     } else {
       this.messageError = null;
       if (this.hero.id !== undefined) {
+        console.log(this.hero);
         this.heroService.updateHero(this.hero);
         this.router.navigate(['heroes']);
       } else {

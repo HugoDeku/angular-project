@@ -45,7 +45,7 @@ export class HeroService {
 
             // Get document id
             const id = item.payload.doc.id;
-            hero.id = id;
+            hero.id = +id;
 
             // log
             // console.log('   hero ' + id);
@@ -71,12 +71,13 @@ export class HeroService {
 
           // New Hero
           const hero = new Hero().fromJSON(data);
-          hero.id = id;
+          hero.id = +id;
 
           // log
           // console.log('getHero(' + id + ')');
 
           // Use spread operator to add the id to the document data
+          console.log(hero);
           return hero;
         })
       );
@@ -120,11 +121,11 @@ export class HeroService {
 
     // Update document
     this.getHeroDocument(hero.id.toString()).update(Object.assign({}, hero));
+    
   }
 
   // Suppression d'un héro
   deleteHero(id: string): void {
-
     // Delete the document
     this.getHeroDocument(id).delete();
   }
