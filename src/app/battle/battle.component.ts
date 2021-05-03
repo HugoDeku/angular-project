@@ -205,5 +205,11 @@ export class BattleComponent implements OnInit {
     }
 
     card.classList.add('selected-item');
+
+    // activate fight button
+    const button = document.getElementById('fight-button');
+    if (button.classList.contains('disabled-button')) {
+      button.classList.replace('disabled-button', 'enabled-button');
+    }
   }
 }

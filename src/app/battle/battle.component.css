@@ -74,8 +74,11 @@
   border: 3px solid transparent;
 }
 
-.selected-item {
-  border: 3px solid #127500;
+#hero-1 .selected-item {
+  border: 3px solid rgb(0, 160, 248);
+}
+#hero-2 .selected-item {
+  border: 3px solid rgb(162, 17, 17);
 }
 
 .battle-item-card:first-of-type {
@@ -132,15 +135,25 @@
 .battle-select-button {
   cursor: pointer;
   font-size: 1rem;
-  border: 1px solid #127500;
   text-align: center;
   border-radius: 15px;
-  color: #127500;
   margin-top: 10px;
 }
 
-.battle-select-button:hover {
-  background-color: #a4e393;
+#hero-1 .battle-select-button, #weapon-1 .battle-select-button {
+  border: 1px solid rgb(0, 160, 248);
+  color: rgb(0, 160, 248);
+}
+#hero-2 .battle-select-button, #weapon-2 .battle-select-button {
+  border: 1px solid rgb(162, 17, 17);
+  color: rgb(162, 17, 17);
+}
+
+#hero-1 .battle-select-button:hover, #weapon-1 .battle-select-button:hover {
+  background-color: #d5e4ec;
+}
+#hero-2 .battle-select-button:hover, #weapon-2 .battle-select-button:hover {
+  background-color: #ecd5d5;
 }
 
 .hero-content-1 .battle-spec-data,
@@ -168,4 +181,9 @@
 
 .hidden {
   display: none;
+}
+
+.disabled-button {
+  opacity: 0.3;
+  pointer-events: none;
 }

@@ -1,7 +1,7 @@
 <div class="battle" *ngIf="!isStarted">
     <div class="battle-header">
         <h1>New battle</h1>
-        <button id="fight-button" (click)="validate()">FIGHT</button>
+        <button id="fight-button" class="disabled-button" (click)="validate()">FIGHT</button>
     </div>
     <div id="error" class="battle-header error hidden">
       <h2>Selection is not complete.</h2>
