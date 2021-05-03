@@ -84,7 +84,7 @@ export class HeroDetailComponent implements OnInit {
             this.hero.id = id;
             this.heroService.addHero(this.hero).then(
               result => {
-                this.router.navigate(['detail/' + this.hero.id]);
+                this.router.navigate(['heroes']);
               }
             );
           }
