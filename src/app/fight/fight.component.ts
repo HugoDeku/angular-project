@@ -167,9 +167,16 @@ export class FightComponent implements OnInit {
   addVictory(heroStats: HeroStatsFinal): void {
     const winningHero = heroStats.id === this.heroWeapon1.hero.id ? this.heroWeapon1.hero : this.heroWeapon2.hero;
 
-    winningHero.victories++;
+    winningHero.victories = winningHero.victories + 1;
 
     // update hero in db
     this.heroService.updateHero(winningHero);
+
+    const winningWeapon = heroStats.id === this.heroWeapon1.hero.id ? this.heroWeapon1.weapon : this.heroWeapon2.weapon;
+
+    winningHero.victories = winningWeapon.victories + 1;
+
+    // update hero in db
+    this.weaponService.updateWeapon(winningWeapon);
   }
 }
