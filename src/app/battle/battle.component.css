@@ -74,10 +74,10 @@
   border: 3px solid transparent;
 }
 
-#hero-1 .selected-item {
+#hero-1 .selected-item, #weapon-1 .selected-item {
   border: 3px solid rgb(0, 160, 248);
 }
-#hero-2 .selected-item {
+#hero-2 .selected-item, #weapon-2 .selected-item {
   border: 3px solid rgb(162, 17, 17);
 }
 
