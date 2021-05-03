@@ -10,7 +10,6 @@ import {BattleComponent} from './battle/battle.component';
 const routes: Routes = [
   { path: 'heroes/detail/:id', component: HeroDetailComponent },
   { path: 'heroes/create', component: HeroDetailComponent },
-  { path: 'weapon/:id', component: WeaponDetailComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'heroes', component: HeroesComponent },

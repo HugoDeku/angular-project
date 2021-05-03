@@ -43,7 +43,7 @@ export class WeaponService {
 
                 // Get document id
                 const id = item.payload.doc.id;
-                weapon.id = id;
+                weapon.id = +id;
 
                 // log
                 // console.log('   weapon ' + id);
@@ -74,7 +74,7 @@ export class WeaponService {
 
             // Get document id
             const id = item.payload.doc.id;
-            weapon.id = id;
+            weapon.id = +id;
 
             // Use spread operator to add the id to the document data
             return weapon;
@@ -97,7 +97,7 @@ export class WeaponService {
 
               // New Hero
               const weapon = new Weapon().fromJSON(data);
-              weapon.id = id;
+              weapon.id = +id;
 
               // log
               // console.log('getWeapon(' + id + ')');

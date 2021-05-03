@@ -8,7 +8,6 @@
             <div *ngFor="let weapon of weapons" class="weapon-card weapon-content-{{ weapon.guild.id }}">
                 <div class="weapon-content-header">
                     <div>{{ weapon.name }}</div>
-                    <div routerLink="/weapon/{{weapon.id}}" class="weapon-card-update"><i class="fas fa-cog"></i></div>
                 </div>
                 <div class="weapon-content-main-info">
                     <div class="weapon-content-img-container">

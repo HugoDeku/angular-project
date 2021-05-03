@@ -221,22 +221,12 @@ export class BattleComponent implements OnInit {
 
   checkStatsHero1(): boolean{
 
-    var verif = this.heroWeaponPlayerOne.hero.health + this.heroWeaponPlayerOne.weapon.health > 0;
-    console.log(this.heroWeaponPlayerOne.hero.health + this.heroWeaponPlayerOne.weapon.health);
-    verif = this.heroWeaponPlayerOne.hero.attack + this.heroWeaponPlayerOne.weapon.attack > 0;
-    console.log(this.heroWeaponPlayerOne.hero.attack + this.heroWeaponPlayerOne.weapon.attack);
-    verif = this.heroWeaponPlayerOne.hero.damage + this.heroWeaponPlayerOne.weapon.damage > 0;
-    console.log(this.heroWeaponPlayerOne.hero.damage + this.heroWeaponPlayerOne.weapon.damage);
-    verif = this.heroWeaponPlayerOne.hero.dodge + this.heroWeaponPlayerOne.weapon.dodge > 0;
-    console.log(this.heroWeaponPlayerOne.hero.dodge + this.heroWeaponPlayerOne.weapon.dodge);
+    var verif = this.heroWeaponPlayerOne.hero.health + this.heroWeaponPlayerOne.weapon.health > 0 && this.heroWeaponPlayerOne.hero.attack + this.heroWeaponPlayerOne.weapon.attack > 0 && this.heroWeaponPlayerOne.hero.damage + this.heroWeaponPlayerOne.weapon.damage > 0 && this.heroWeaponPlayerOne.hero.dodge + this.heroWeaponPlayerOne.weapon.dodge > 0;
     return verif;
   }
 
   checkStatsHero2(): boolean{    
-    var verif = this.heroWeaponPlayerTwo.hero.health + this.heroWeaponPlayerTwo.weapon.health > 0;
-    verif = this.heroWeaponPlayerTwo.hero.attack + this.heroWeaponPlayerTwo.weapon.attack > 0;
-    verif = this.heroWeaponPlayerTwo.hero.damage + this.heroWeaponPlayerTwo.weapon.damage > 0;
-    verif = this.heroWeaponPlayerTwo.hero.dodge + this.heroWeaponPlayerTwo.weapon.dodge > 0;
+    var verif = this.heroWeaponPlayerTwo.hero.health + this.heroWeaponPlayerTwo.weapon.health > 0 && this.heroWeaponPlayerTwo.hero.attack + this.heroWeaponPlayerTwo.weapon.attack > 0 && this.heroWeaponPlayerTwo.hero.damage + this.heroWeaponPlayerTwo.weapon.damage > 0 && this.heroWeaponPlayerTwo.hero.dodge + this.heroWeaponPlayerTwo.weapon.dodge > 0;
     return verif;
   }
 }
