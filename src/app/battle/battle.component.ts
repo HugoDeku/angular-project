@@ -28,6 +28,8 @@ export class BattleComponent implements OnInit {
   indexPlayerTwo: IndexPlayer;
   isStarted: boolean;
 
+  messageEror: String;
+
   constructor(private route: ActivatedRoute,
               private heroService: HeroService,
               private location: Location,
@@ -141,14 +143,18 @@ export class BattleComponent implements OnInit {
 
   validate(): void {
     const selectedItems = document.getElementsByClassName('selected-item');
-
     if (selectedItems.length < 4) {
-      document.getElementById('error').classList.remove('hidden');
-    } else {
-      const errorMessage = document.getElementById('error');
-      if (!errorMessage.classList.contains('error')) { errorMessage.classList.add('hidden');}
+      this.messageEror = "Selection is not complete.";
+    }else if(this.heroWeaponPlayerOne.hero.id === this.heroWeaponPlayerTwo.hero.id){
+      this.messageEror = "You can't choose the same characters.";
+    }else if(!this.checkStatsHero1()){
+      this.messageEror = "Combo player 1 hero and player 1 weapon is wrong, hero have negative stat.";
+    }else if(!this.checkStatsHero2()){
+      this.messageEror = "Combo player 2 hero and player 2 weapon is wrong, hero have negative stat.";
+    }else {
       this.isStarted = true;
     }
+    console.log(this.messageEror)
   }
 
   arrow(item, side, player): void {
@@ -211,5 +217,26 @@ export class BattleComponent implements OnInit {
     if (button.classList.contains('disabled-button')) {
       button.classList.replace('disabled-button', 'enabled-button');
     }
+  }
+
+  checkStatsHero1(): boolean{
+
+    var verif = this.heroWeaponPlayerOne.hero.health + this.heroWeaponPlayerOne.weapon.health > 0;
+    console.log(this.heroWeaponPlayerOne.hero.health + this.heroWeaponPlayerOne.weapon.health);
+    verif = this.heroWeaponPlayerOne.hero.attack + this.heroWeaponPlayerOne.weapon.attack > 0;
+    console.log(this.heroWeaponPlayerOne.hero.attack + this.heroWeaponPlayerOne.weapon.attack);
+    verif = this.heroWeaponPlayerOne.hero.damage + this.heroWeaponPlayerOne.weapon.damage > 0;
+    console.log(this.heroWeaponPlayerOne.hero.damage + this.heroWeaponPlayerOne.weapon.damage);
+    verif = this.heroWeaponPlayerOne.hero.dodge + this.heroWeaponPlayerOne.weapon.dodge > 0;
+    console.log(this.heroWeaponPlayerOne.hero.dodge + this.heroWeaponPlayerOne.weapon.dodge);
+    return verif;
+  }
+
+  checkStatsHero2(): boolean{    
+    var verif = this.heroWeaponPlayerTwo.hero.health + this.heroWeaponPlayerTwo.weapon.health > 0;
+    verif = this.heroWeaponPlayerTwo.hero.attack + this.heroWeaponPlayerTwo.weapon.attack > 0;
+    verif = this.heroWeaponPlayerTwo.hero.damage + this.heroWeaponPlayerTwo.weapon.damage > 0;
+    verif = this.heroWeaponPlayerTwo.hero.dodge + this.heroWeaponPlayerTwo.weapon.dodge > 0;
+    return verif;
   }
 }

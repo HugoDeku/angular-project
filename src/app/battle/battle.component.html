@@ -3,8 +3,8 @@
         <h1>New battle</h1>
         <button id="fight-button" class="disabled-button" (click)="validate()">FIGHT</button>
     </div>
-    <div id="error" class="battle-header error hidden">
-      <h2>Selection is not complete.</h2>
+    <div *ngIf="messageEror" class="battle-header error hidden">
+        <h2>{{ messageEror }}</h2>
     </div>
     <div class="battle-content">
         <div class="battle-player">
